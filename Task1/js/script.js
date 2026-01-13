@@ -32,15 +32,14 @@ function draw() {
 
     //draw ellipses
     noStroke();
-    fill(255, 0, 0);
+    fill(200, 0, 0);
     ellipse(x1, y1, w1, h1);
 
-    fill(0, 255, 0);
+    fill(0, 200, 0);
     ellipse(x2, y2, w2, h2);
 
-    fill(0, 0, 255);
+    fill(0, 0, 200);
     ellipse(x3, y3, w3, h3);
-
 
     // ellipse(10, 10, 50, 50);
     // ellipse(50, 50, 75, 75);
