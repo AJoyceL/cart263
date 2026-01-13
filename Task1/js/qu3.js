@@ -77,8 +77,10 @@ function mousePressed(){
 
 function keyPressed(){
     // redraw the rectangle in a different position when a key is pressed
-    x2 += 30;    
-    y2 += 30;
+    if(key === ' '){
+        x2 += 30;    
+        y2 += 30;   
+    }
 
     //return to original position if it goes off screen
     if(x2 > width){
