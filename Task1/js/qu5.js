@@ -91,6 +91,11 @@ function mouseMoved(){
     }
 }
 
+//check with emile and jen
 function checkCollisionWithSquare() {
     //check if mouse is over square
+}
+
+function drawEllipse() {
+    
 }
