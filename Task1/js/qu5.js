@@ -4,36 +4,35 @@
  * Create rects with different sizes and colors.
  */
 
-//var1ables for rect 1
+// object variables for rect 1
 let btn1 = {
     x: 25,
     y: 25,
     w: 25,
     h: 25,
-    r: 200,
-    g: 0,
-    b: 0
+    r: 190,
+    g: 165,
+    b: 25
 }
 
+// object variables for rect 2
 let btn2 = {
-    x: 50,
+    x: 60,
     y: 25,
     w: 25,
     h: 25,
-    r: 200,
+    r: 190,
     g: 0,
-    b: 0
+    b: 25
 }
 
+let ellipse ={
+    x: 200,
+    y: 200,
+}
 
-//variables for rect 2
-let x2 = 50;
-let y2 = 50;
-let w2 = 35;
-let h2 = 35;
-let r2 = 0;
-let g2 = 200;
-let b2 = 0;
+//counter variable
+let counter = 0;
 
 function setup() {
     createCanvas(400, 400);
@@ -42,11 +41,56 @@ function setup() {
 function draw() {
     background(0,0,0);
 
-    //draw rects
-    noStroke();
-    fill(r2, g2, b2);
-    rect(x2, y2, w2, h2);
+    displaySquare(); //calls square btn
+}
 
-    fill(r1, g1, b1);
-    rect(x1, y1, w1, h1);
+function displaySquare() {
+    push();
+    noStroke();
+    //square 1
+    fill(btn1.r, btn1.g, btn1.b);
+    rect(btn1.x, btn1.y, btn1.w, btn1.h);
+
+    //square 2
+    fill(btn2.r, btn2.g, btn2.b);
+    rect(btn2.x, btn2.y, btn2.w, btn2.h);
+    pop();
+}
+
+function mousePressed(){
+    if(mouseX > btn1.x && mouseX < btn1.x + btn1.w && mouseY > btn1.y && mouseY < btn1.y + btn1.h){
+        counter += 1;
+        console.log(counter);
+    }
+
+    if(mouseX > btn2.x && mouseX < btn2.x + btn2.w && mouseY > btn2.y && mouseY < btn2.y + btn2.h){
+        counter -= 1;
+        console.log(counter);
+    }
+}
+
+function mouseMoved(){
+    //change colour of rects when mouse move on X and Y axis
+        if(mouseX > btn1.x && mouseX < btn1.x + btn1.w && mouseY > btn1.y && mouseY < btn1.y + btn1.h){
+        btn1.r = 255;
+        btn1.b = 0;
+    }
+    else if(mouseX > btn1.x + btn1.w || mouseY > btn1.y + btn1.h){
+        btn1.r = 190;
+        btn1.b = 25;
+    }
+
+    //change colour of rects when mouse move on X and Y axis
+    if(mouseX > btn2.x && mouseX < btn2.x + btn2.w && mouseY > btn2.y && mouseY < btn2.y + btn2.h){
+        btn2.r = 255;
+        btn2.b = 0;
+    }
+    else if(mouseX > btn2.x + btn2.w || mouseY > btn2.y + btn2.h){
+        btn2.r = 190;
+        btn2.b = 25;
+    }
+}
+
+function checkCollisionWithSquare() {
+    //check if mouse is over square
 }
