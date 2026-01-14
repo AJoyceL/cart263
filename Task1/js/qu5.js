@@ -26,7 +26,7 @@ let btn2 = {
     b: 25
 }
 
-let ellipse ={
+let ellipse = {
     x: 200,
     y: 200,
     r: 255,
@@ -47,11 +47,11 @@ function draw() {
     background(0,0,0);
 
     //display ellipse loop
-    while(counter >=0 && counter <=10){
-        if(counter += 1){
+    // while(counter >=0 && counter <=10){
+    //     if(counter += 1){
             
-        }
-    }
+    //     }
+    // }
 
     displaySquare(); //calls square btn
     drawEllipse(); //calls ellipse
