@@ -29,7 +29,12 @@ let btn2 = {
 let ellipse ={
     x: 200,
     y: 200,
+    r: 255,
+    g: 255,
+    b: 255,
+    t: 0.50 //transparency
 }
+let radius = 50;
 
 //counter variable
 let counter = 0;
@@ -41,8 +46,20 @@ function setup() {
 function draw() {
     background(0,0,0);
 
+    //display ellipse loop
+    while(counter >=0 && counter <=10){
+        if(counter += 1){
+            
+        }
+    }
+
     displaySquare(); //calls square btn
+    drawEllipse(); //calls ellipse
 }
+
+/** 
+* Functions for the square buttons. 
+*/
 
 function displaySquare() {
     push();
@@ -60,12 +77,10 @@ function displaySquare() {
 function mousePressed(){
     if(mouseX > btn1.x && mouseX < btn1.x + btn1.w && mouseY > btn1.y && mouseY < btn1.y + btn1.h){
         counter += 1;
-        console.log(counter);
     }
 
     if(mouseX > btn2.x && mouseX < btn2.x + btn2.w && mouseY > btn2.y && mouseY < btn2.y + btn2.h){
         counter -= 1;
-        console.log(counter);
     }
 }
 
@@ -96,6 +111,18 @@ function checkCollisionWithSquare() {
     //check if mouse is over square
 }
 
+
+/**
+ * Functions for the ellipse.
+ */
+function ellipseAlpha() {
+
+}
+
 function drawEllipse() {
-    
+    push();
+    noStroke();
+    fill(ellipse.r, ellipse.g, ellipse.b, ellipse.t);
+    ellipse(ellipse.x, ellipse.y, radius, radius);
+    pop();
 }
