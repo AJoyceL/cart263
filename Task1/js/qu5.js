@@ -26,7 +26,7 @@ let btn2 = {
     b: 25
 }
 
-let ellipse = {
+let circle = {
     x: 200,
     y: 200,
     r: 255,
@@ -47,14 +47,15 @@ function draw() {
     background(0,0,0);
 
     //display ellipse loop
-    // while(counter >=0 && counter <=10){
-    //     if(counter += 1){
-            
-    //     }
-    // }
-
+    while(mouseX > btn1.x && mouseX < btn1.x + btn1.w && mouseY > btn1.y && mouseY < btn1.y + btn1.h){
+        counter += 1;
+        drawEllipse();
+        console.log(drawEllipse());
+    }
+    
+    checkCollisionWithSquare(); //calls collision function
     displaySquare(); //calls square btn
-    drawEllipse(); //calls ellipse
+    // drawEllipse(); //calls ellipse
 }
 
 /** 
@@ -74,41 +75,46 @@ function displaySquare() {
     pop();
 }
 
-function mousePressed(){
+
+function checkCollisionWithSquare() {
+
+    let collision = false;
+    //check if mouse is clicking on the square
     if(mouseX > btn1.x && mouseX < btn1.x + btn1.w && mouseY > btn1.y && mouseY < btn1.y + btn1.h){
         counter += 1;
+        collision = true;
     }
 
     if(mouseX > btn2.x && mouseX < btn2.x + btn2.w && mouseY > btn2.y && mouseY < btn2.y + btn2.h){
         counter -= 1;
+        collision = true;
     }
-}
 
-function mouseMoved(){
+    //check if mouse is over square
     //change colour of rects when mouse move on X and Y axis
-        if(mouseX > btn1.x && mouseX < btn1.x + btn1.w && mouseY > btn1.y && mouseY < btn1.y + btn1.h){
+    if(mouseX > btn1.x && mouseX < btn1.x + btn1.w && mouseY > btn1.y && mouseY < btn1.y + btn1.h){
         btn1.r = 255;
         btn1.b = 0;
+        collision = true;
     }
-    else if(mouseX > btn1.x + btn1.w || mouseY > btn1.y + btn1.h){
+    else if(mouseX > btn1.x - btn1.w || mouseY > btn1.y - btn1.h){
         btn1.r = 190;
         btn1.b = 25;
+        collision = false;
     }
 
     //change colour of rects when mouse move on X and Y axis
     if(mouseX > btn2.x && mouseX < btn2.x + btn2.w && mouseY > btn2.y && mouseY < btn2.y + btn2.h){
         btn2.r = 255;
         btn2.b = 0;
+        collision = true;
     }
-    else if(mouseX > btn2.x + btn2.w || mouseY > btn2.y + btn2.h){
+    else if(mouseX > btn2.x - btn2.w || mouseY > btn2.y - btn2.h){
         btn2.r = 190;
         btn2.b = 25;
+        collision = false;
     }
-}
-
-//check with emile and jen
-function checkCollisionWithSquare() {
-    //check if mouse is over square
+    // console.log(collision);
 }
 
 
@@ -122,7 +128,7 @@ function ellipseAlpha() {
 function drawEllipse() {
     push();
     noStroke();
-    fill(ellipse.r, ellipse.g, ellipse.b, ellipse.t);
-    ellipse(ellipse.x, ellipse.y, radius, radius);
+    fill(circle.r, circle.g, circle.b, circle.t);
+    ellipse(circle.x, circle.y, radius, radius);
     pop();
 }
