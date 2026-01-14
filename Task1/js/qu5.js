@@ -32,9 +32,9 @@ let circle = {
     r: 255,
     g: 255,
     b: 255,
-    t: 0.50 //transparency
 }
 let radius = 50;
+let ellipseAlpha = 0.25;
 
 //counter variable
 let counter = 0;
@@ -47,15 +47,14 @@ function draw() {
     background(0,0,0);
 
     //display ellipse loop
-    while(mouseX > btn1.x && mouseX < btn1.x + btn1.w && mouseY > btn1.y && mouseY < btn1.y + btn1.h){
-        counter += 1;
-        drawEllipse();
-        console.log(drawEllipse());
+    while(counter ){
+
     }
     
     checkCollisionWithSquare(); //calls collision function
     displaySquare(); //calls square btn
-    // drawEllipse(); //calls ellipse
+    drawEllipse(); //calls ellipse\
+
 }
 
 /** 
@@ -75,21 +74,20 @@ function displaySquare() {
     pop();
 }
 
-
-function checkCollisionWithSquare() {
-
-    let collision = false;
+function mousePressed() {
     //check if mouse is clicking on the square
     if(mouseX > btn1.x && mouseX < btn1.x + btn1.w && mouseY > btn1.y && mouseY < btn1.y + btn1.h){
         counter += 1;
-        collision = true;
     }
 
     if(mouseX > btn2.x && mouseX < btn2.x + btn2.w && mouseY > btn2.y && mouseY < btn2.y + btn2.h){
         counter -= 1;
-        collision = true;
     }
+}
 
+function checkCollisionWithSquare() {
+    let collision = false;
+    
     //check if mouse is over square
     //change colour of rects when mouse move on X and Y axis
     if(mouseX > btn1.x && mouseX < btn1.x + btn1.w && mouseY > btn1.y && mouseY < btn1.y + btn1.h){
@@ -114,16 +112,13 @@ function checkCollisionWithSquare() {
         btn2.b = 25;
         collision = false;
     }
-    // console.log(collision);
+    console.log(counter);
 }
 
 
 /**
  * Functions for the ellipse.
  */
-function ellipseAlpha() {
-
-}
 
 function drawEllipse() {
     push();
