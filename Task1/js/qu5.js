@@ -26,15 +26,17 @@ let btn2 = {
     b: 25
 }
 
-let circle = {
-    x: 200,
-    y: 200,
-    r: 255,
-    g: 255,
-    b: 255,
-}
+// object variables for circle
+// let circle = {
+//     x: 200,
+//     y: 200,
+//     r: 255,
+//     g: 255,
+//     b: 255,
+// }
+
 let radius = 50;
-let ellipseAlpha = 0.25;
+let ellipseAlpha = 25;
 
 //counter variable
 let counter = 0;
@@ -47,13 +49,21 @@ function draw() {
     background(0,0,0);
 
     //display ellipse loop
-    while(counter ){
+    if(counter >= 1 && counter <= 10){
+        let i = 0; //tracks circles
+        let currentRadius = radius; //sets current radius to initial radius
+        let currentAlpha = ellipseAlpha; //sets current alpha to initial alpha
 
+        while(i < counter){
+            drawEllipse(width/2, height/2, currentRadius, currentAlpha, currentAlpha); //calls draw ellipse function
+            currentAlpha += 15; //increases transparency
+            currentRadius += 25; //increases radius
+            i++; //increments i
+        }
     }
-    
+
     checkCollisionWithSquare(); //calls collision function
     displaySquare(); //calls square btn
-    drawEllipse(); //calls ellipse\
 
 }
 
@@ -77,11 +87,17 @@ function displaySquare() {
 function mousePressed() {
     //check if mouse is clicking on the square
     if(mouseX > btn1.x && mouseX < btn1.x + btn1.w && mouseY > btn1.y && mouseY < btn1.y + btn1.h){
-        counter += 1;
+        counter ++;
+        if (counter > 10) {
+            counter = 10;
+        }
     }
 
     if(mouseX > btn2.x && mouseX < btn2.x + btn2.w && mouseY > btn2.y && mouseY < btn2.y + btn2.h){
-        counter -= 1;
+        counter --;
+        if (counter < 0) {
+            counter = 0;
+        }
     }
 }
 
@@ -120,10 +136,10 @@ function checkCollisionWithSquare() {
  * Functions for the ellipse.
  */
 
-function drawEllipse() {
+function drawEllipse(x, y, r, a) {
     push();
     noStroke();
-    fill(circle.r, circle.g, circle.b, circle.t);
-    ellipse(circle.x, circle.y, radius, radius);
+    fill(255, a);
+    ellipse(x, y, r, r);
     pop();
 }
