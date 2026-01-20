@@ -25,7 +25,7 @@ function draw() {
     for(let i = 0; i<10; i++){
         const x = d * i + 25;
 
-        for(let j = 0; j<20; j++){
+        for(let j = 0; j<10; j++){
             const y = d * j + 25;   
             fill(circlegrid.r, circlegrid.g, circlegrid.b);
             if(squaresgrid){
