@@ -7,30 +7,34 @@ console.log("we are a go!")
 /*** START PART ONE ACCESS */ 
 /* 1: all paragraph elements */
 /***CODE */
+// console.log(document.querySelectorAll("p"));
 /***OUTPUT: 
- * 
+ *  [p#1, p#2.img-descript, p#3.img-descript, p#4.img-descript, p#5.img-descript, p#6.img-descript, p#7.img-descript, p#8.img-descript, p#9.img-descript]
  */
 
 
 /*************************************** */
 /* 2: only the first paragraph element */
 /***CODE */
+// console.log(document.getElementById("1"));
 /***OUTPUT: 
- * 
+ * <p id="1"><p>
  */
 
 
 /*************************************** */
 /* 3: all elements with the class inner-container */
 /***CODE */
+// console.log(document.querySelectorAll(".inner-container"));
 /***OUTPUT: 
- * 
+ * [div.inner-container, div.inner-container, div.inner-container, div.inner-container, div.inner-container, div.inner-container, div.inner-container, div.inner-container]
  */
 
 
 /*************************************** */
 /* 4: the last image element inside the element that has the class img-container */
 /***CODE */
+console.log(document.querySelectorAll("div")[8].getAttribute("img_container"));
 /***OUTPUT: 
  * 
  */

@@ -82,7 +82,6 @@ newDivTwo.querySelector("p").style.color = "black"
 // let parentElementAgain = document.querySelector(".wrapper_flex_box")
 // parentElementAgain.insertBefore(newDivTwo,sibling);
 
-
 let parentElementToRemoveFrom = document.querySelector(".wrapper_flex_box")
 let toRemove = document.getElementById("six");
 parentElementToRemoveFrom.removeChild(toRemove);
