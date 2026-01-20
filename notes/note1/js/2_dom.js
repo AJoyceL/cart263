@@ -20,6 +20,8 @@ function setup(){
     // console.log("running setup");
 
 
+
+
     // //modifying elements
     console.log(document.querySelectorAll("span")[0].parentElement)
     console.log(document.querySelector(".wrapper_flex_box").children)
@@ -33,25 +35,58 @@ function setup(){
     // }
 
     
-//get the group
-let allSquareShapes = document.querySelectorAll(".square_shape");
-//go through each element
-for(let  singleSquareShape of allSquareShapes){
-    //get children
-   console.log(singleSquareShape.children[0])
-   singleSquareShape.children[0].textContent+="adding content"
-}
 
 
-//get the group
-let allSquareShapes = document.querySelectorAll(".square_shape");
-//go through each element
-for(let  singleSquareShape of allSquareShapes){
-    //get children
-    if(singleSquareShape.querySelector("p span")!== null){
-    singleSquareShape.querySelector("p span").textContent+= " other Content"
-    }
-}
+
+// //get the group
+// let allSquareShapes = document.querySelectorAll(".square_shape");
+// //go through each element
+// for(let  singleSquareShape of allSquareShapes){
+//     //get children
+//    console.log(singleSquareShape.children[0])
+//    singleSquareShape.children[0].textContent+="adding content"
+// }
+
+
+// //get the group
+// let allSquareShapes = document.querySelectorAll(".square_shape");
+// //go through each element
+// for(let  singleSquareShape of allSquareShapes){
+//     //get children
+//     if(singleSquareShape.querySelector("p span")!== null){
+//     singleSquareShape.querySelector("p span").textContent+= " other Content"
+//     }
+// }
+
+
+
+
+
+  //new element
+let newDiv = document.createElement("div");
+newDiv.classList.add("square_shape");
+newDiv.innerHTML = " NEW ELEMENT ";
+newDiv.style.backgroundColor = "purple";
+// access parent element
+let parentElement = document.querySelector(".wrapper_flex_box")
+parentElement.appendChild(newDiv)
+
+
+let newDivTwo = document.createElement("div");
+newDivTwo.classList.add("square_shape");
+newDivTwo.innerHTML = " NEW ELEMENT TWO ";
+newDivTwo.style.backgroundColor = "yellow";
+newDivTwo.querySelector("p").style.color = "black"
+// access parent element
+// let sibling = document.querySelector("#three")
+// let parentElementAgain = document.querySelector(".wrapper_flex_box")
+// parentElementAgain.insertBefore(newDivTwo,sibling);
+
+
+let parentElementToRemoveFrom = document.querySelector(".wrapper_flex_box")
+let toRemove = document.getElementById("six");
+parentElementToRemoveFrom.removeChild(toRemove);
+
 
 }
 
