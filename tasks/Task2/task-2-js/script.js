@@ -2,7 +2,8 @@ window.onload = setup;
 
 /** function setup */
 function setup(){
-console.log("we are a go!")
+// console.log("we are a go!")
+
 /*** ALL ANWSERS TO BE ADDED IN THE ALLOCATED SPACE */
 /*** START PART ONE ACCESS */ 
 /* 1: all paragraph elements */
@@ -71,8 +72,8 @@ console.log("we are a go!")
 /*************************************** */
 /* 1: Select the first paragraph and replace the text within the paragraph... */
 /***CODE */
-let firstParagraph = document.querySelectorAll("p")[0];
-firstParagraph.innerHTML = "<h2>TEST 123</h2>";
+// let firstParagraph = document.querySelectorAll("p")[0];
+// firstParagraph.innerHTML = "<h2>TEST 123</h2>";
 //see how others did it
 
 /***OUTPUT: 
@@ -83,31 +84,43 @@ firstParagraph.innerHTML = "<h2>TEST 123</h2>";
 /* 2: Select all elements in the HTML that have the class name content-container
  and change the background color ... of first and second ...*/
 /***CODE */
-let contentContainers = document.querySelectorAll(".content-container");
-contentContainers[0].style.backgroundColor = "lightblue";
-contentContainers[1].style.backgroundColor = "lightgreen";
+// let contentContainers = document.querySelectorAll(".content-container");
+// contentContainers[0].style.backgroundColor = "lightblue";
+// contentContainers[1].style.backgroundColor = "lightgreen";
 /***OUTPUT: 
  * N/A - VISUAL OUTPUT
  */
 /*************************************** */
 /* 3: Change the src element of the first image element on the page to be ...
 /***CODE */
+let firstImage = document.querySelectorAll("img")[0];
+firstImage.src = "task-2-images/seven.png";
+//img won't appear
 
+/***OUTPUT: 
+ * N/A - VISUAL OUTPUT
+ */
 /*************************************** */
 /* 4: Select the third paragraph element on the page and 
 replace the content (within the paragraph) to be an h2 element which contains the text `TEST 123`
 /***CODE */
+let thirdParagraph = document.querySelectorAll("p")[2];
+thirdParagraph.innerHTML = "<h2>TEST 123</h2>";
 
 /*************************************** */
 /* 5: Select the fourth paragraph element on the page and 
 add to the existing content an h2 element containing the text `TEST 123`
 /***CODE */
+let fourthParagraph = document.querySelectorAll("p")[3];
+fourthParagraph.innerHTML += "<h2>TEST 123</h2>";
 
 /*************************************** */
 /* 6: Select the fifth paragraph element on the page and add to the existing content 
 an img element that holds `one.png`, and add the class newStyle to said paragraph element.
 /***CODE */
-
+let fifthParagraph = document.querySelectorAll("p")[4];
+fifthParagraph.innerHTML += '<img src="task-2-images/one.png" />';
+fifthParagraph.classList.add("newStyle");
 
 /*************************************** */
 /* 7: Add the following array variable: let colors = ['red','blue','green','orange'];, 
@@ -117,6 +130,11 @@ assign the element from innerContainers variable with the same index
 (i.e. colors[0] should be allocated to the first innerContainers element, colors[1] to the second, etc ...) 
 a background using that color.
 /***CODE */
+let colors = ['red','blue','green','orange'];
+let n7Container = document.querySelectorAll(".inner-container");
+for (let i = 0; i < colors.length; i++) {
+    n7Container[i].style.backgroundColor = colors[i];
+}
 
 /*************************************** */
 /*** END PART TWO MODIFY */ 
@@ -136,10 +154,23 @@ a background using that color.
 /* 1H: Iterate through the allPTagsThree array and call customCreateElement(), 
 passing the current allPTagsThree element as the parent with each iteration.*/
 /***CODE */
-
+let allPTagsThree = document.querySelectorAll("p");
+function customCreateElement(parent){
+    let newParagraph = document.createElement("p");
+    newParagraph.textContent = "using create Element";
+    newParagraph.style.backgroundColor = "limegreen";
+    newParagraph.style.color = "white";
+    parent.appendChild(newParagraph);
+}
+for (let i = 0; i < allPTagsThree.length; i++) {
+    customCreateElement(allPTagsThree[i]);
+}
 
 /***EXPLANATION::
- * 
+ * I accessed all paragraphs and stored them in the variable allPTagsThree.
+ * I created a function that takes the parents element as an argument, creates a new paragraph element: setting the text content and colour, and background colour.
+ * Then I appended the new paragraph to the parent element.
+ * Finally, I iterated through allPTagsThree and called the customCreateElement function for each paragraph element.
  * 
  */
 
