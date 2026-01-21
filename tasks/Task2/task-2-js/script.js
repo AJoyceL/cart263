@@ -34,7 +34,7 @@ console.log("we are a go!")
 /*************************************** */
 /* 4: the last image element inside the element that has the class img-container */
 /***CODE */
-console.log(document.querySelectorAll("div")[8].getAttribute("img_container"));
+//ask for help later
 /***OUTPUT: 
  * 
  */
@@ -45,6 +45,10 @@ console.log(document.querySelectorAll("div")[8].getAttribute("img_container"));
 /* 5B: length of the list in 5A */
 /* 5C: the text content of the first element in the list from 5A */
 /***CODE */
+//CHECK WITH OTHERS
+// console.log(document.querySelectorAll("h2"));
+// console.log(document.querySelectorAll("h2").length);
+// console.log(document.querySelectorAll("h2")[0]);
 /***OUTPUT: 
  * 
  */
@@ -53,8 +57,9 @@ console.log(document.querySelectorAll("div")[8].getAttribute("img_container"));
 /*************************************** */
 /* 6: the element with id name parent */
 /***CODE */
+// console.log(document.getElementById("parent"));
 /***OUTPUT: 
- * 
+ * <section id="parent">…</section>
  */
 
 /*************************************** */
@@ -66,11 +71,24 @@ console.log(document.querySelectorAll("div")[8].getAttribute("img_container"));
 /*************************************** */
 /* 1: Select the first paragraph and replace the text within the paragraph... */
 /***CODE */
+let firstParagraph = document.querySelectorAll("p")[0];
+firstParagraph.innerHTML = "<h2>TEST 123</h2>";
+//see how others did it
+
+/***OUTPUT: 
+ * <p><h2>TEST 123</h2></p>
+ */
+
 /*************************************** */
 /* 2: Select all elements in the HTML that have the class name content-container
  and change the background color ... of first and second ...*/
 /***CODE */
-
+let contentContainers = document.querySelectorAll(".content-container");
+contentContainers[0].style.backgroundColor = "lightblue";
+contentContainers[1].style.backgroundColor = "lightgreen";
+/***OUTPUT: 
+ * N/A - VISUAL OUTPUT
+ */
 /*************************************** */
 /* 3: Change the src element of the first image element on the page to be ...
 /***CODE */
