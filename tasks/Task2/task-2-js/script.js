@@ -35,9 +35,11 @@ function setup(){
 /*************************************** */
 /* 4: the last image element inside the element that has the class img-container */
 /***CODE */
-//ask for help later
+// let imgContainers = document.querySelectorAll(".img-container");
+// let lastImgInContainer = imgContainers[imgContainers.length - 1].querySelectorAll("img");
+// console.log(lastImgInContainer[lastImgInContainer.length - 1]);
 /***OUTPUT: 
- * 
+ * <img class="img-image" src="task-2-images/seventeen.png"></img>
  */
 
 
@@ -212,8 +214,9 @@ for(let i = 0; i < 10; i++){
 
 /***EXPLANATION::
  * I created a fucntion that creates a new div element with the class textDic, appending it to the parent element, and returning it.
- * I then created a newsted for() loop to iterate through 10 rows and columns, calling the function to create a new dic for every grid cel.
+ * I then created a newsted for() loop to iterate through 10 rows and columns, calling the function to create a new dic for every grid cell.
  * 
+ * https://github.com/AJoyceL/cart263/blob/a731aca1df08c186b7e515556b05e0cd605a59b1/tasks/Task2/task-2-images/part3.2.png
  */
 
 /*************************************** */
