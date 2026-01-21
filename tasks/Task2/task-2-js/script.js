@@ -171,7 +171,7 @@ for (let i = 0; i < allPTagsThree.length; i++) {
  * I created a function that takes the parents element as an argument, creates a new paragraph element: setting the text content and colour, and background colour.
  * Then I appended the new paragraph to the parent element.
  * Finally, I iterated through allPTagsThree and called the customCreateElement function for each paragraph element.
- * 
+ * https://github.com/AJoyceL/cart263/blob/52c6d8e091f47b509de6b95a87b13f92b8892633/tasks/Task2/task-2-images/part3.1.png
  */
 
 /*************************************** */
@@ -195,10 +195,24 @@ for (let i = 0; i < allPTagsThree.length; i++) {
     otherwise lat it have the content `ODD`.*/
 
 /***CODE */
-
+function customNewBoxCreate(parent){
+    let newDiv = document.createElement("div");
+    newDiv.classList.add("testDiv");
+    parent.appendChild(newDiv);
+    return newDiv;
+}
+for(let i = 0; i < 10; i++){
+    for(let j = 0; j < 10; j++){
+        let returnedDiv = customNewBoxCreate(document.getElementById("new-grid"));
+        returnedDiv.style.left = (j * 50) + "px";
+        returnedDiv.style.top = (i * 50) + "px";
+        returnedDiv.style.backgroundColor = "purple";
+    }
+}
 
 /***EXPLANATION::
- * 
+ * I created a fucntion that creates a new div element with the class textDic, appending it to the parent element, and returning it.
+ * I then created a newsted for() loop to iterate through 10 rows and columns, calling the function to create a new dic for every grid cel.
  * 
  */
 
