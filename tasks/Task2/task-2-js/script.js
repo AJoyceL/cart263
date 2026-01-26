@@ -2,13 +2,14 @@ window.onload = setup;
 
 /** function setup */
 function setup(){
-// console.log("we are a go!")
+console.log("we are a go!")
 
 /*** ALL ANWSERS TO BE ADDED IN THE ALLOCATED SPACE */
 /*** START PART ONE ACCESS */ 
 /* 1: all paragraph elements */
 /***CODE */
-// console.log(document.querySelectorAll("p"));
+// console.log(document.getElementsByTagName("p"));
+
 /***OUTPUT: 
  *  [p#1, p#2.img-descript, p#3.img-descript, p#4.img-descript, p#5.img-descript, p#6.img-descript, p#7.img-descript, p#8.img-descript, p#9.img-descript]
  */
@@ -18,8 +19,14 @@ function setup(){
 /* 2: only the first paragraph element */
 /***CODE */
 // console.log(document.getElementById("1"));
+
 /***OUTPUT: 
- * <p id="1"><p>
+ * <p id="1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias perspiciatis blanditiis, et
+        laborum praesentium earum. Enim facere, quia commodi voluptate, quis asperiores, pariatur ducimus
+        officiis non
+        quasi officia sit veniam!
+    </p>
  */
 
 
@@ -27,6 +34,7 @@ function setup(){
 /* 3: all elements with the class inner-container */
 /***CODE */
 // console.log(document.querySelectorAll(".inner-container"));
+
 /***OUTPUT: 
  * [div.inner-container, div.inner-container, div.inner-container, div.inner-container, div.inner-container, div.inner-container, div.inner-container, div.inner-container]
  */
@@ -38,6 +46,7 @@ function setup(){
 // let imgContainers = document.querySelectorAll(".img-container");
 // let lastImgInContainer = imgContainers[imgContainers.length - 1].querySelectorAll("img");
 // console.log(lastImgInContainer[lastImgInContainer.length - 1]);
+
 /***OUTPUT: 
  * <img class="img-image" src="task-2-images/seventeen.png"></img>
  */
@@ -48,21 +57,37 @@ function setup(){
 /* 5B: length of the list in 5A */
 /* 5C: the text content of the first element in the list from 5A */
 /***CODE */
-//CHECK WITH OTHERS
 // console.log(document.querySelectorAll("h2"));
 // console.log(document.querySelectorAll("h2").length);
-// console.log(document.querySelectorAll("h2")[0]);
+// console.log(document.querySelectorAll("h2")[0].textContent);
+
 /***OUTPUT: 
- * 
- */
+ * NodeList [h2]
+    0: h2
+    length: 1
+[[Prototype]]: NodeList
+    * b:1
+    * c:The header of this fancy page
+    */
+
 
 
 /*************************************** */
 /* 6: the element with id name parent */
 /***CODE */
 // console.log(document.getElementById("parent"));
+
 /***OUTPUT: 
- * <section id="parent">…</section>
+<section id="parent">
+    <div class="inner-container"></div>
+    <div class="inner-container">
+    <div class="inner-container">
+    <div class="inner-container">
+    <div class="inner-container"></div>
+    <div class="inner-container">
+    <div class="inner-container"></div>
+    <div class="inner-container"></div>
+</section>
  */
 
 /*************************************** */
@@ -72,57 +97,71 @@ function setup(){
 /*************************************** */
 /*** START PART TWO MODIFY */ 
 /*************************************** */
+
+//part 2 screenshot
+//
+
 /* 1: Select the first paragraph and replace the text within the paragraph... */
 /***CODE */
 // let firstParagraph = document.querySelectorAll("p")[0];
 // firstParagraph.innerHTML = "<h2>TEST 123</h2>";
-//see how others did it
 
 /***OUTPUT: 
  * <p><h2>TEST 123</h2></p>
  */
+
 
 /*************************************** */
 /* 2: Select all elements in the HTML that have the class name content-container
  and change the background color ... of first and second ...*/
 /***CODE */
 // let contentContainers = document.querySelectorAll(".content-container");
-// contentContainers[0].style.backgroundColor = "lightblue";
-// contentContainers[1].style.backgroundColor = "lightgreen";
-/***OUTPUT: 
- * N/A - VISUAL OUTPUT
- */
-/*************************************** */
-/* 3: Change the src element of the first image element on the page to be ...
-/***CODE */
-let firstImage = document.querySelectorAll("img")[0];
-firstImage.src = "task-2-images/seven.png";
-//img won't appear
+// contentContainers[0].style.backgroundColor = "orange";
+// contentContainers[1].style.backgroundColor = "purple";
 
 /***OUTPUT: 
  * N/A - VISUAL OUTPUT
  */
+
+
+
+/*************************************** */
+/* 3: Change the src element of the first image element on the page to be ...
+/***CODE */
+// let firstImage = document.querySelectorAll("img")[0];
+// firstImage.src = "task-2-images/seven.png";
+
+/***OUTPUT: 
+ * N/A - VISUAL OUTPUT
+ */
+
+
+
 /*************************************** */
 /* 4: Select the third paragraph element on the page and 
 replace the content (within the paragraph) to be an h2 element which contains the text `TEST 123`
 /***CODE */
-let thirdParagraph = document.querySelectorAll("p")[2];
-thirdParagraph.innerHTML = "<h2>TEST 123</h2>";
+//document.querySelectorAll("p")[2].innerHTML = "<h2> TEST 123 </h2>"
+
+
 
 /*************************************** */
 /* 5: Select the fourth paragraph element on the page and 
 add to the existing content an h2 element containing the text `TEST 123`
 /***CODE */
-let fourthParagraph = document.querySelectorAll("p")[3];
-fourthParagraph.innerHTML += "<h2>TEST 123</h2>";
+// document.querySelectorAll("p")[3].innerHTML += "<h2> TEST 123 </H2>"
+
+
 
 /*************************************** */
 /* 6: Select the fifth paragraph element on the page and add to the existing content 
 an img element that holds `one.png`, and add the class newStyle to said paragraph element.
 /***CODE */
-let fifthParagraph = document.querySelectorAll("p")[4];
-fifthParagraph.innerHTML += '<img src="task-2-images/one.png" />';
-fifthParagraph.classList.add("newStyle");
+// let fifthParagraph = document.querySelectorAll("p")[4];
+// fifthParagraph.innerHTML += '<img src="task-2-images/one.png" />';
+// fifthParagraph.classList.add("newStyle");
+
+
 
 /*************************************** */
 /* 7: Add the following array variable: let colors = ['red','blue','green','orange'];, 
@@ -132,11 +171,13 @@ assign the element from innerContainers variable with the same index
 (i.e. colors[0] should be allocated to the first innerContainers element, colors[1] to the second, etc ...) 
 a background using that color.
 /***CODE */
-let colors = ['red','blue','green','orange'];
-let n7Container = document.querySelectorAll(".inner-container");
-for (let i = 0; i < colors.length; i++) {
-    n7Container[i].style.backgroundColor = colors[i];
-}
+// let colors = ['red','blue','green','orange'];
+// let innerContainer = document.querySelectorAll(".inner-container");
+// for (let i = 0; i < colors.length; i++) {
+//     innerContainer[i].style.backgroundColor = colors[i];
+// }
+
+
 
 /*************************************** */
 /*** END PART TWO MODIFY */ 
@@ -157,24 +198,26 @@ for (let i = 0; i < colors.length; i++) {
 passing the current allPTagsThree element as the parent with each iteration.*/
 /***CODE */
 let allPTagsThree = document.querySelectorAll("p");
+
 function customCreateElement(parent){
     let newParagraph = document.createElement("p");
-    newParagraph.textContent = "using create Element";
-    newParagraph.style.backgroundColor = "limegreen";
+    newParagraph.textContent = "using create element";
+    newParagraph.style.background = "green";
     newParagraph.style.color = "white";
     parent.appendChild(newParagraph);
 }
+
 for (let i = 0; i < allPTagsThree.length; i++) {
     customCreateElement(allPTagsThree[i]);
 }
 
-/***EXPLANATION::
- * I accessed all paragraphs and stored them in the variable allPTagsThree.
- * I created a function that takes the parents element as an argument, creates a new paragraph element: setting the text content and colour, and background colour.
- * Then I appended the new paragraph to the parent element.
- * Finally, I iterated through allPTagsThree and called the customCreateElement function for each paragraph element.
- * https://github.com/AJoyceL/cart263/blob/52c6d8e091f47b509de6b95a87b13f92b8892633/tasks/Task2/task-2-images/part3.1.png
+/***EXPLANATION:
+ * I created a function that creates a new paragraph element, sets its text and styles, and appends it to the parent element.
+ * I then iterated through all paragraph elements on the page, calling the function for each to add the new paragraph with a for loop().
+ * 
  */
+
+
 
 /*************************************** */
 /* 2: GRID OF BOXES */
@@ -197,26 +240,41 @@ for (let i = 0; i < allPTagsThree.length; i++) {
     otherwise lat it have the content `ODD`.*/
 
 /***CODE */
+let colour = "purple";
+let text = "ODD";
+
+for(let i = 0; i < 10; i++){
+    let top = i * 40 + "px";
+
+    for(let j = 0; j < 10; j++){
+        let box = customNewBoxCreate(document.querySelector("#new-grid"));
+        box.style.left = j * 40 + "px";
+        box.style.top = top;
+        box.style.background = colour;
+        box.textContent = text;
+    }
+
+    if(colour === "purple"){
+        colour = "white";
+        text = "EVEN";
+    } else {
+        colour = "purple";
+        text = "ODD";
+    }
+}
+
 function customNewBoxCreate(parent){
     let newDiv = document.createElement("div");
     newDiv.classList.add("testDiv");
     parent.appendChild(newDiv);
     return newDiv;
 }
-for(let i = 0; i < 10; i++){
-    for(let j = 0; j < 10; j++){
-        let returnedDiv = customNewBoxCreate(document.getElementById("new-grid"));
-        returnedDiv.style.left = (j * 50) + "px";
-        returnedDiv.style.top = (i * 50) + "px";
-        returnedDiv.style.backgroundColor = "purple";
-    }
-}
 
-/***EXPLANATION::
- * I created a fucntion that creates a new div element with the class textDic, appending it to the parent element, and returning it.
- * I then created a newsted for() loop to iterate through 10 rows and columns, calling the function to create a new dic for every grid cell.
- * 
- * https://github.com/AJoyceL/cart263/blob/a731aca1df08c186b7e515556b05e0cd605a59b1/tasks/Task2/task-2-images/part3.2.png
+
+/***EXPLANATION:
+ * I created a function that creates a new div element with the class "testDiv", appends it to the parent element, and returns the new div.
+ * I then used a nested for loop to create a 10x10 grid of divs, calculating their positions based on the loop counters.
+ * I also implemented the bonus features by alternating the background color and text content based on the row number.
  */
 
 /*************************************** */
