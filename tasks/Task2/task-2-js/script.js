@@ -98,8 +98,10 @@ console.log("we are a go!")
 /*** START PART TWO MODIFY */ 
 /*************************************** */
 
-//part 2 screenshot
-//
+//Part 2 visual output:
+//let screenshot1 = document.createElement("img");
+//screenshot1.src = "task-2-images/part2.1.png";
+
 
 /* 1: Select the first paragraph and replace the text within the paragraph... */
 /***CODE */
@@ -186,6 +188,17 @@ a background using that color.
 /*************************************** */
 /*** START PART THREE CREATE */ 
 /*************************************** */
+
+//part 3 visual output:
+//Q1:
+//let screenshot2 = document.createElement("img");
+//screenshot2.src = "task-2-images/part3.1.png";
+//Q2:
+//let screenshot3 = document.createElement("img");
+//screenshot3.src = "task-2-images/part3.2.png";
+
+
+
 /* 1: NEW PARAGRAPHS */
 /* 1A: Access all paragraph elements, and store the result in a variable called: allPTagsThree */
 /* 1B: Create a function:function customCreateElement(parent){ //body } */
@@ -197,19 +210,19 @@ a background using that color.
 /* 1H: Iterate through the allPTagsThree array and call customCreateElement(), 
 passing the current allPTagsThree element as the parent with each iteration.*/
 /***CODE */
-let allPTagsThree = document.querySelectorAll("p");
+// let allPTagsThree = document.querySelectorAll("p");
 
-function customCreateElement(parent){
-    let newParagraph = document.createElement("p");
-    newParagraph.textContent = "using create element";
-    newParagraph.style.background = "green";
-    newParagraph.style.color = "white";
-    parent.appendChild(newParagraph);
-}
+// function customCreateElement(parent){
+//     let newParagraph = document.createElement("p");
+//     newParagraph.textContent = "using create element";
+//     newParagraph.style.background = "green";
+//     newParagraph.style.color = "white";
+//     parent.appendChild(newParagraph);
+// }
 
-for (let i = 0; i < allPTagsThree.length; i++) {
-    customCreateElement(allPTagsThree[i]);
-}
+// for (let i = 0; i < allPTagsThree.length; i++) {
+//     customCreateElement(allPTagsThree[i]);
+// }
 
 /***EXPLANATION:
  * I created a function that creates a new paragraph element, sets its text and styles, and appends it to the parent element.
@@ -240,35 +253,35 @@ for (let i = 0; i < allPTagsThree.length; i++) {
     otherwise lat it have the content `ODD`.*/
 
 /***CODE */
-let colour = "purple";
-let text = "ODD";
+// let colour = "purple";
+// let text = "ODD";
 
-for(let i = 0; i < 10; i++){
-    let top = i * 40 + "px";
+// for(let i = 0; i < 10; i++){
+//     let top = i * 40 + "px";
 
-    for(let j = 0; j < 10; j++){
-        let box = customNewBoxCreate(document.querySelector("#new-grid"));
-        box.style.left = j * 40 + "px";
-        box.style.top = top;
-        box.style.background = colour;
-        box.textContent = text;
-    }
+//     for(let j = 0; j < 10; j++){
+//         let box = customNewBoxCreate(document.querySelector("#new-grid"));
+//         box.style.left = j * 40 + "px";
+//         box.style.top = top;
+//         box.style.background = colour;
+//         box.textContent = text;
+//     }
 
-    if(colour === "purple"){
-        colour = "white";
-        text = "EVEN";
-    } else {
-        colour = "purple";
-        text = "ODD";
-    }
-}
+//     if(colour === "purple"){
+//         colour = "white";
+//         text = "EVEN";
+//     } else {
+//         colour = "purple";
+//         text = "ODD";
+//     }
+// }
 
-function customNewBoxCreate(parent){
-    let newDiv = document.createElement("div");
-    newDiv.classList.add("testDiv");
-    parent.appendChild(newDiv);
-    return newDiv;
-}
+// function customNewBoxCreate(parent){
+//     let newDiv = document.createElement("div");
+//     newDiv.classList.add("testDiv");
+//     parent.appendChild(newDiv);
+//     return newDiv;
+// }
 
 
 /***EXPLANATION:
