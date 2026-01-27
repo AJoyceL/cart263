@@ -43,9 +43,15 @@ console.log("we are a go!")
 /*************************************** */
 /* 4: the last image element inside the element that has the class img-container */
 /***CODE */
-// let imgContainers = document.querySelectorAll(".img-container");
-// let lastImgInContainer = imgContainers[imgContainers.length - 1].querySelectorAll("img");
-// console.log(lastImgInContainer[lastImgInContainer.length - 1]);
+let imgContainers = document.querySelectorAll(".img-container");
+let lastImgInContainer = imgContainers[imgContainers.length - 1].querySelectorAll("img");
+console.log(lastImgInContainer[lastImgInContainer.length - 1]);
+
+//This is Emile's example:
+// let nbImgs = document.querySelectorAll(".img-container");
+//     for (let i = 0; i < nbImgs.length; i++) {
+//         console.log(document.querySelector("img"))
+//     }
 
 /***OUTPUT: 
  * <img class="img-image" src="task-2-images/seventeen.png"></img>
@@ -98,7 +104,7 @@ console.log("we are a go!")
 /*** START PART TWO MODIFY */ 
 /*************************************** */
 
-//Part 2 visual output:
+//Part 2 visual output:(copied Emile's idea)
 //let screenshot1 = document.createElement("img");
 //screenshot1.src = "task-2-images/part2.1.png";
 
@@ -107,6 +113,9 @@ console.log("we are a go!")
 /***CODE */
 // let firstParagraph = document.querySelectorAll("p")[0];
 // firstParagraph.innerHTML = "<h2>TEST 123</h2>";
+
+//class example:
+//document.querySelector("p").textContent = "<h2>TEST 123</h2>";
 
 /***OUTPUT: 
  * <p><h2>TEST 123</h2></p>
@@ -215,7 +224,7 @@ passing the current allPTagsThree element as the parent with each iteration.*/
 // function customCreateElement(parent){
 //     let newParagraph = document.createElement("p");
 //     newParagraph.textContent = "using create element";
-//     newParagraph.style.background = "green";
+//     newParagraph.style.backgroundColor = "green";
 //     newParagraph.style.color = "white";
 //     parent.appendChild(newParagraph);
 // }
