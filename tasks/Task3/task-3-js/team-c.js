@@ -5,9 +5,67 @@ function setup_C() {
   /**************************************************** */
   //get the buttons
   activateButtons(`#TEAM_C`, "ani_canvC",aniA,aniB,aniC,aniD);
+  /**************** ANI A ************************************ */
+  /** PUT ALL YOUR CODE FOR INTERACTIVE PATTERN A INSIDE HERE */
+  /**************** ANI A ************************************ */
+  /**************** TASK *******************************************
+   * YOU CAN USE ALL NOTES --- and see my examples in team-h.js for inspiration and possibly help:)
+   * 1: create a creative, visual pattern using text, divs as shapes, images ... 
+   * 2: add in mouseclick event listener(s) somewhere to make the sketch interactive
+   *
+   * NOTE::: PLEASE::: if you add any custom css PLEASE use the style.css and prefix any class names with your team label
+   * i.e. you want to create a custom div class and you are in "Team_A" then call your class TEAM_A_ANI_A_Div -
+   * this is so that your styles are not overriden by other teams.
+   * NOTE::: All your code is to be added here inside this function  -
+   * remember you can define other functions inside....
+   * Do not change any code above or the HTML markup.
+   * **/
 
   function aniA(parentCanvas) {
     console.log("in ani-A -teamC");
+
+    //draws the circles
+    let bounds = parentCanvas.getBoundingClientRect();
+    let circle = document.createElement("div");
+    circle.classList.add("TEAM_C_circle");
+    circle.style.left = bounds.width/2 + "px";
+    circle.style.top = bounds.height/2 + "px";
+    circle.style.width = "50px";
+    circle.style.height = "50px";
+    parentCanvas.appendChild(circle);
+    circle.addEventListener("click", colourHandler);
+
+    let numClicks = 0; 
+
+    //when mouseclick triggers animation
+    function colourHandler() {
+      if (numClicks <10) {
+        numClicks++;
+        let i = 0;
+        while(i < numClicks){
+          drawCircle(circle.style.width/2, circle.style.height/2);
+          circle.style.width += "20px";
+          circle.style.height += 20;
+          i++
+          console.log (i);
+        }
+      } else{
+        numClicks = 0;
+      }
+      console.log(numClicks);
+    }
+
+    function drawCircle(){
+      circle.classList.add("TEAM_C_circle");
+      circle.style.left = bounds.width/2 + "px";
+      circle.style.top = bounds.height/2 + "px";
+      circle.style.width = "70px";
+      circle.style.height = "70px";
+      circle.style.background = "black";
+      circle.style.borderRadius = "40px"
+      circle.style.opacity = ".2"
+      parentCanvas.appendChild(circle);
+    }
   }
 
 
@@ -28,8 +86,8 @@ function setup_C() {
    * **/
 
   function aniB(parentCanvas) {
-      console.log("in ani-B -teamC");
-    
+    console.log("in ani-B -teamC");
+    //IDEA: gradiant that changes colour when mouseover grid of circles. the circles around the mouse has a lighter change compared to the center.
   }
   /****************ANI C ************************************ */
   /** PUT ALL YOUR CODE FOR INTERACTIVE PATTERN C INSIDE HERE */
@@ -53,6 +111,7 @@ function setup_C() {
 
   function aniC(parentCanvas) {
       console.log("in ani-C -teamC");
+      //IDEA: hold spacbar down creates ripples (2 cirlces) at random position.
 
     /*** THIS IS THE CALLBACK FOR KEY DOWN (* DO NOT CHANGE THE NAME *..) */
     windowKeyDownRef = function (e) {
@@ -88,6 +147,7 @@ function setup_C() {
    * **/
    function aniD(parentCanvas) {
     console.log("in ani-D -teamC");
-    }
+    //IDEA: grid of circles moving in a wave pattern?
+  }
 }
    

@@ -102,6 +102,20 @@ body{
     background:rgba(246, 15, 142,1.0);
   }
 
+
+
+
+/* CSS TEAM C**/
+.TEAM_C_circle{
+  border-radius: 25px;
+  background-color: rgba(30, 223, 197, .5);
+  position:absolute;
+  transform: translate(-50%, -50%);
+}
+
+
+
+
 /*CSS TEAM H**/
 
 .TEAM_H_box{
@@ -120,11 +134,10 @@ body{
 }
 
 .TEAM_H_circle{
-  border-radius: 10px;;
+  border-radius: 10px;
   background-color: rgb(223, 30, 117);
   position:absolute;
   transform: translate(-50%, -50%);
-
 }
 
 .TEAM_H_h_cell{
