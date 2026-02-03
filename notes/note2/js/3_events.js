@@ -49,7 +49,7 @@ function setup(){
             document.querySelector(`#${this.id} p`).classList.remove(classToAddP);
             this.setAttribute("custom-bool", "inactive");
         }
-    } 
+    }
 }
 
 
