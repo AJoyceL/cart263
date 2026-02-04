@@ -24,48 +24,48 @@ function setup_C() {
   function aniA(parentCanvas) {
     console.log("in ani-A -teamC");
 
-    //draws the circles
-    let bounds = parentCanvas.getBoundingClientRect();
-    let circle = document.createElement("div");
-    circle.classList.add("TEAM_C_circle");
-    circle.style.left = bounds.width/2 + "px";
-    circle.style.top = bounds.height/2 + "px";
-    circle.style.width = "50px";
-    circle.style.height = "50px";
-    parentCanvas.appendChild(circle);
-    circle.addEventListener("click", colourHandler);
+    // //draws the circles
+    // let bounds = parentCanvas.getBoundingClientRect();
+    // let circle = document.createElement("div");
+    // circle.classList.add("TEAM_C_circle");
+    // circle.style.left = bounds.width/2 + "px";
+    // circle.style.top = bounds.height/2 + "px";
+    // circle.style.width = "50px";
+    // circle.style.height = "50px";
+    // parentCanvas.appendChild(circle);
+    // circle.addEventListener("click", colourHandler);
 
-    let numClicks = 0; 
+    // let numClicks = 0; 
 
-    //when mouseclick triggers animation
-    function colourHandler() {
-      if (numClicks <10) {
-        numClicks++;
-        let i = 0;
-        while(i < numClicks){
-          drawCircle(circle.style.width/2, circle.style.height/2);
-          circle.style.width += "20px";
-          circle.style.height += 20;
-          i++
-          console.log (i);
-        }
-      } else{
-        numClicks = 0;
-      }
-      console.log(numClicks);
-    }
+    // //when mouseclick triggers animation
+    // function colourHandler() {
+    //   if (numClicks <10) {
+    //     numClicks++;
+    //     let i = 0;
+    //     while(i < numClicks){
+    //       drawCircle(circle.style.width/2, circle.style.height/2);
+    //       circle.style.width += "20px";
+    //       circle.style.height += 20;
+    //       i++
+    //       console.log (i);
+    //     }
+    //   } else{
+    //     numClicks = 0;
+    //   }
+    //   console.log(numClicks);
+    // }
 
-    function drawCircle(){
-      circle.classList.add("TEAM_C_circle");
-      circle.style.left = bounds.width/2 + "px";
-      circle.style.top = bounds.height/2 + "px";
-      circle.style.width = "70px";
-      circle.style.height = "70px";
-      circle.style.background = "black";
-      circle.style.borderRadius = "40px"
-      circle.style.opacity = ".2"
-      parentCanvas.appendChild(circle);
-    }
+    // function drawCircle(){
+    //   circle.classList.add("TEAM_C_circle");
+    //   circle.style.left = bounds.width/2 + "px";
+    //   circle.style.top = bounds.height/2 + "px";
+    //   circle.style.width = "70px";
+    //   circle.style.height = "70px";
+    //   circle.style.background = "black";
+    //   circle.style.borderRadius = "40px"
+    //   circle.style.opacity = ".2"
+    //   parentCanvas.appendChild(circle);
+    // }
   }
 
 
@@ -87,8 +87,52 @@ function setup_C() {
 
   function aniB(parentCanvas) {
     console.log("in ani-B -teamC");
-    //IDEA: gradiant that changes colour when mouseover grid of circles. the circles around the mouse has a lighter change compared to the center.
+    //check with others
+
+    //gradient colours
+    let gradiantColours = [
+      "cyan",
+      "navy",
+      "blue",
+      "purple",
+      "violet",
+      "fuchsia",
+    ];
+
+    let circles = [];
+    let bounds = parentCanvas.getBoundingClientRect();
+    let offset = 30;
+
+    //calls grid of circles
+    for(let i = 0; i < bounds.width / 30; i ++){
+      for(let j = 0; j < bounds.height / 30; j ++) {
+        let circle = document.createElement("div");
+        circle.classList.add("TEAM_C_grid");
+        circle.style.left = offset + i * 25 + "px";
+        circle.style.top = offset + j * 25 + "px";
+        circle.style.width = "15px";
+        circle.style.height = "15px";
+        circle.style.opacity = 1;
+        parentCanvas.appendChild(circle);
+        circles.push(circle);
+
+        circle.setAttribute("gradiantchange", 0);
+        circle.addEventListener("mousemove", gradientHandler);
+      }
+    }
+
+    //handles the mouseover/mousemove that triggers the gradient change
+    function gradientHandler(){
+      let gradientAtt = parseInt(this.getAttribute("gradiantchange"));
+      this.setAttribute("gradiantchange", gradientAtt + 1);
+      //help cycling through the gradianColours infinitely
+      this.style.background = gradiantColours[gradientAtt % gradiantColours.length];
+    };
   }
+
+
+
+  
   /****************ANI C ************************************ */
   /** PUT ALL YOUR CODE FOR INTERACTIVE PATTERN C INSIDE HERE */
   /****************ANI C************************************ */
