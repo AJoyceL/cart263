@@ -121,7 +121,7 @@ body{
 .TEAM_C_grid:hover{
   background-color: rgb(225, 217, 235);
   transform: scale(2);
-  /* transition: transform .2s ease-in-out; */
+  transition: transform .4s ease-in-out;
 }
 
 
