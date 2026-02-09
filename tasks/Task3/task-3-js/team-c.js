@@ -97,15 +97,36 @@ function setup_C() {
    * **/
 
   
-  function aniB(parentCanvas) {
+ function aniB(parentCanvas) {
     console.log("in ani-B -teamC");
+    //check with others
+
     //gradient colours
     let gradiantColours = [
-      "rgb(9, 70, 30)",
-      "rgb(10, 85, 36)",
-      "rgb(14, 100, 44)",
-      "rgb(15, 114, 50)",
-      "rgb(18, 141, 61)",
+      "rgb(9, 40, 20)",
+      "rgb(9, 50, 20)",
+      "rgb(9, 60, 20)",
+      "rgb(9, 70, 20)",
+      "rgb(9, 80, 20)",
+      "rgb(9, 90, 20)",
+      "rgb(9, 100, 20)",
+      "rgb(9, 100, 40)",
+      "rgb(9, 100, 60)",
+      "rgb(9, 100, 80)",
+      "rgb(9, 100, 100)",
+      "rgb(9, 100, 120)",
+      "rgb(9, 100, 140)",
+      "rgb(29, 100, 140)",
+      "rgb(49, 100, 140)",
+      "rgb(69, 100, 140)",
+      "rgb(89, 100, 140)",
+      "rgb(109, 100, 140)",
+      "rgb(129, 100, 140)",
+      "rgb(149, 100, 140)",
+      "rgb(169, 100, 140)",
+      "rgb(189, 100, 140)",
+      "rgb(209, 100, 140)",
+      "rgb(229, 100, 140)"
     ];
 
     let circles = [];
@@ -135,6 +156,17 @@ function setup_C() {
     //handles the mouseover/mousemove that triggers the gradient change
     function hoverHandler(thisI, thisJ) {
       return function () {
+        // if (lastHovered === undefined) {
+        //   lastHovered = [thisI, thisJ];
+        // }
+        // if (lastHovered[0] !== thisI || lastHovered[1] !== thisJ) {
+        //   lastHovered = [thisI, thisJ];
+        //   for (let i = 0; i < circles.length; i++) {
+        //     for (let j = 0; j < circles[0].length; j++) {
+        //        resetGradient(i, j);
+        //     }
+        //   }
+        // }
         for (let i = 0; i < circles.length; i++) {
           for (let j = 0; j < circles[0].length; j++) {
             if (isSelf(thisI, thisJ, i, j) || isNeighbour(thisI, thisJ, i, j)) {
@@ -146,6 +178,9 @@ function setup_C() {
                 changeSize(i, j, 1)
               }
             }
+            // else {
+            //   resetGradient(i, j);
+            // }
           }
         }
       }
@@ -170,17 +205,26 @@ function setup_C() {
       circles[i][j].setAttribute("gradiantchange", gradientAtt + 1);
       //help cycling through the gradiantColours infinitely
       circles[i][j].style.background = gradiantColours[Math.min(gradientAtt, gradiantColours.length - 1)];
+      // circles[i][j].innerHTML = circles[i][j].getAttribute("gradiantchange")
+      // console.log("gradiantchange", i, j)
     }
+
+    // function resetGradient(i, j) {
+    //   circles[i][j].style.background = gradiantColours[0];
+    //   circles[i][j].setAttribute("gradiantchange", 0);
+    // }
+
     function changeSize(i, j, delta) {
       let sizeAtt = parseInt(circles[i][j].style.width.replace("px", ""))
-      circles[i][j].style.width = `${sizeAtt + delta}px`;
-      circles[i][j].style.height = `${sizeAtt + delta}px`;
-      circles[i][j].style.borderRadius = `${sizeAtt + 10 + delta}px`;
+      let maxSize = 60;
+
+      if (sizeAtt < maxSize) {
+        circles[i][j].style.width = `${sizeAtt + delta}px`;
+        circles[i][j].style.height = `${sizeAtt + delta}px`;
+        circles[i][j].style.borderRadius = `${sizeAtt + 10 + delta}px`;
+      }
     }
   }
-
-
-
 
   
   /****************ANI C ************************************ */
@@ -203,21 +247,63 @@ function setup_C() {
    * using  ONLY key down and/or keyup -- any keys::
    */
 
-  function aniC(parentCanvas) {
-      console.log("in ani-C -teamC");
-      //IDEA: hold spacbar down creates ripples (2 cirlces) at random position.
+function aniC(parentCanvas) {
+    console.log("in ani-C -teamC");
+
+    let drops = [];
+    let bounds = parentCanvas.getBoundingClientRect();
+    let offset = 30;
+
+    // rgba for a white background
+    let r = 255;
+    let g = 255;
+    let b = 255;
+    let a = 1;
 
     /*** THIS IS THE CALLBACK FOR KEY DOWN (* DO NOT CHANGE THE NAME *..) */
     windowKeyDownRef = function (e) {
       //code for key down in here
       console.log(e);
       console.log("c-down");
+
+      let droplet = document.createElement("div");
+      droplet.classList.add("TEAM_C_droplet");
+      droplet.style.left = Math.random() * bounds.width - 10 + "px";
+      droplet.style.top = Math.random() * bounds.height - 10 + "px";
+      droplet.style.width = "18px";
+      droplet.style.height = "20px";
+      droplet.style.opacity = 1;
+      parentCanvas.appendChild(droplet);
+      drops.push(droplet);
+
     };
 
     /*** THIS IS THE CALLBACK FOR KEY UP (*DO NOT CHANGE THE NAME..) */
     windowKeyUpRef = function (e) {
       console.log(e);
       console.log("c-up");
+
+      let dropletTwo = document.createElement("div");
+      dropletTwo.classList.add("TEAM_C_droplet_two");
+      dropletTwo.style.left = Math.random() * bounds.width - 10 + "px";
+      dropletTwo.style.top = Math.random() * bounds.height - 10 + "px";
+      dropletTwo.style.width = "9px";
+      dropletTwo.style.height = "11px";
+      dropletTwo.style.opacity = 1;
+      parentCanvas.appendChild(dropletTwo);
+      drops.push(dropletTwo);
+
+      // background starts off white
+      document.querySelector("#ani_canvC_C").style.backgroundColor = `rgba(${r}, ${g}, ${b}, ${a})`;
+
+      // transitions slowly to very dark blue with a nice little purple moment
+      // uses math.max as a protection so that r,g and b don't go under 0
+      r = Math.max(r - 2, 0)
+      g = Math.max(g - 4, 0)
+      b = Math.max(b - 1.5, 0)
+      console.log(r)
+      console.log(g)
+      console.log(b)
     };
     //DO NOT REMOVE
     window.addEventListener("keydown", windowKeyDownRef);
@@ -243,16 +329,6 @@ function setup_C() {
     console.log("in ani-D -teamC");
     // reference code from https://codingtechroom.com/question/make-object-move-in-circle 
 
-    //gradient colours
-    let gradiantColours = [
-      "rgb(30, 39, 145)",
-      "rgb(44, 67, 176)",
-      "rgb(51, 100, 192)",
-      "rgb(66, 123, 210)",
-      "rgb(76, 154, 221)",
-      "rgb(100, 182, 238)",
-    ];
-
     let circles = [];
     let bounds = parentCanvas.getBoundingClientRect();
     let offset = 30;
@@ -271,8 +347,6 @@ function setup_C() {
         // circle.style.transform = "translate(-50%, -50%)";
         parentCanvas.appendChild(circle);
         circles[i].push(circle); // create columns
-
-        circle.setAttribute("gradiantchange", 1);
       }
     }
 
