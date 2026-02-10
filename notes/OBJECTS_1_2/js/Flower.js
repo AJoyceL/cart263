@@ -54,6 +54,22 @@ constructor(x,y,size,stemLength,petalColor) {
       g: 0,
       b: 0,
     };
+
+    let self = this;
+    // console.log(self);
+
+    this.flowerStemDiv.addEventListener("click", growStem);
+    function growStem(e){
+      self.stemLength = self.stemLength+10;
+      
+      //update the actual div...
+      self.flowerStemDiv.style.height = self.stemLength + "px";
+      self.flowerStemDiv.style.top = self.y - self.stemLength + "px";
+
+      // and also the petal element needs to move up
+      self.flowerPetalDiv.style.top =
+      self.y - self.stemLength - self.size / 2 + "px";
+    }
   }
 
 //render method
@@ -91,4 +107,6 @@ constructor(x,y,size,stemLength,petalColor) {
      //add to the DOM
      document.getElementsByClassName("grass")[0].appendChild(this.flowerPetalDiv);
     }
+
+  
 }
