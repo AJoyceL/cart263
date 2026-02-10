@@ -83,18 +83,18 @@ let garden = {
     // flower.renderFlower();
 
      // Create our flowers by counting up to the number of the flowers
-    for (let i = 0; i < garden.numFlowers; i++) {
-      // NEW! Create a new flower
-      let flower = new Flower();
-      // Add the flower to the array of flowers
-      garden.flowers.push(flower);
-    }
+    // for (let i = 0; i < garden.numFlowers; i++) {
+    //   // NEW! Create a new flower
+    //   let flower = new Flower();
+    //   // Add the flower to the array of flowers
+    //   garden.flowers.push(flower);
+    // }
 
     
-    for (let i = 0; i < garden.numFlowers; i++) {
-        // Add the flower to the array of flowers
-        garden.flowers[i].renderFlower();
-    }
+    // for (let i = 0; i < garden.numFlowers; i++) {
+    //     // Add the flower to the array of flowers
+    //     garden.flowers[i].renderFlower();
+    // }
 
     // // add numFlowers at one time
     // for (let i = 0; i < garden.numFlowers; i++) {
@@ -105,6 +105,23 @@ let garden = {
     // }
 
 
+   for (let i = 0; i < garden.numFlowers; i++) {
+      // Create variables for our arguments for clarity
+      let x = Math.random() * (window.innerWidth-100);
+      let y = Math.random() * 120;
+      let size = Math.random() * 30 + 50;
+      let stemLength = Math.random() * 50 + 50;
+      let petalColor = {
+        r: parseInt(Math.random() * 155) + 100,
+        g: parseInt(Math.random() * 155) + 100,
+        b: parseInt(Math.random() * 155) + 100,
+      };
+
+      // Create a new flower using the arguments
+      let flower = new Flower(x, y, size, stemLength, petalColor);
+      // Add the flower to the array of flowers
+      garden.flowers.push(flower);
+    }
 
 
 }
