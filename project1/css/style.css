@@ -7,7 +7,7 @@
 
 /* CSS */
 body{
-    background:rgb(37, 37, 37);
+    background:rgb(83, 66, 54);
     margin:1%;
     padding:0;
     opacity: .85;
@@ -31,7 +31,7 @@ h3{
     margin: 10px;
     text-transform: capitalize;
     font-size: 20px;
-    color: blanchedalmond;
+    color: rgb(37, 37, 37);
 }
 
 p{
@@ -39,16 +39,16 @@ p{
     font-weight: 400;
     font-style: normal;
     
-    text-transform: capitalize;
+    text-transform: inherit;
     font-size: 20px;
-    color: blanchedalmond;
+    color: rgb(37, 37, 37);
     text-wrap: wrap;
     padding: 10px;
 }
 
 /* ID ELEMENTS */
 #parent{
-    background:rgba(0, 0, 0, 0.5);
+    background:rgb(216, 207, 195);
     margin: auto;
     height: 800px;
     width: 600px;
