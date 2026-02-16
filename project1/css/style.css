@@ -56,5 +56,27 @@ p{
 
 
 /* CLASS ELEMENTS */
+.nextBtn{
+    font-family: "Shadows Into Light Two", cursive;
+    font-weight: 400;
+    font-style: bold;
+    font-size: 18px;
 
+    position: relative;
+    border: 1.5px solid rgb(37, 37, 37);
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin: 10px;
+    background: none;
+}
+
+.nextPage{
+    position: absolute;
+    background:rgb(216, 207, 195);
+    margin: auto;
+    height: 800px;
+    width: 600px;
+    top: center;
+    left: center;
+}
   
