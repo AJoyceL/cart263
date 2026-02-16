@@ -8,8 +8,8 @@ Joyce Angelina Lam
 Dear Journal is an interactive web where users are invited to type out their days or how they feel. 
 
 1. There is a date that changes to match the current time(real time date).
-2. The main parragraph is where the user will be invited to share their day.
-3. There will be the possibility to write more than on 1 page.
+2. The p text invites users to share their day.
+3. The page has a scroll option to write as much as they want.
 4. There will be the possibility to save your journal in your files.
 5. ...
 
