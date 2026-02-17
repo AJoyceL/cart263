@@ -88,6 +88,21 @@ let garden = {
 
   //calls all our animations
   function updateGarden(){
+    if(garden.dogs[0].isjumping ===true){ 
+      // garden.dogs[0].catchBird(garden.birds[0])
+
+      for(let i =0; i< garden.birds.length;i++){
+        //try to catch any bird
+         garden.dogs[0].catchBird(garden.birds[i])
+      }
+
+    }
+   // if the first dog is set to jump
+    if(garden.dogs[0].isjumping ===true){
+      console.log("jump")
+      garden.dogs[0].updateJump()
+    }
+
     // Go through all the animals and move, wrap, and display them
     for (let i = 0; i < garden.dogs.length; i++) {
       let dog = garden.dogs[i];
@@ -104,6 +119,21 @@ let garden = {
 
     window.requestAnimationFrame(updateGarden);
   }
+
+  
+ // new jump on key press
+  window.addEventListener("keydown", function(e){
+    //set up to allow got "0" to jump 
+    if(e.code ==="Space"){
+      //prevent default behaviour of the space bar
+      e.preventDefault()
+      //check if the dog is already jumping
+      if(garden.dogs[0].isjumping ===false){
+        garden.dogs[0].jump()    
+      }
+    
+    }
+  })
 
   createAndRenderTheGarden();
   createDogs();

@@ -34,6 +34,21 @@ class Bird extends Animal {
         this.vy += randomRange(-.1, .1);
         }
     }
+    
+  // Overriding the superclass' wrap() method!
+  wrap() {
+    // NEW! Call the superclass (Animal) version of wrap()
+    // This will handle wrapping on the x axis for us.
+    // We use "super" to access methods in the SUPERclass (Animal)
+    // So this calls the Animal version of wrap() after we make the specific changes 
+    // in the SUBclass.
+   
+        if (this.x > window.innerWidth) {
+            //reset
+            this.vy = 0;
+        }
+        super.wrap();
+   }
 //   // Move the bird according to its velocity
 //   move() {
 //     this.x += this.vx;
@@ -52,16 +67,21 @@ class Bird extends Animal {
 
  // Display the bird as a ellipse
   renderAnimal() {
+      // Remember to call the superclass' version of this method!
     super.renderAnimal();
-    this.animalBody.classList.add("animal");
-    this.animalBody.style.width = this.width + "px";
-    this.animalBody.style.height = this.height + "px";
-    this.animalBody.style.left = this.x + "px";
-    this.animalBody.style.top = this.y + "px";
-    this.animalBody.style.borderRadius = this.width + "px";
     this.animalBody.style.backgroundColor = `rgb(106, 90, 205)`;
-    //add to the DOM
     document.getElementsByClassName("sky")[0].appendChild(this.animalBody);
+
+    // super.renderAnimal();
+    // this.animalBody.classList.add("animal");
+    // this.animalBody.style.width = this.width + "px";
+    // this.animalBody.style.height = this.height + "px";
+    // this.animalBody.style.left = this.x + "px";
+    // this.animalBody.style.top = this.y + "px";
+    // this.animalBody.style.borderRadius = this.width + "px";
+    // this.animalBody.style.backgroundColor = `rgb(106, 90, 205)`;
+    // //add to the DOM
+    // document.getElementsByClassName("sky")[0].appendChild(this.animalBody);
   }
 }
 
