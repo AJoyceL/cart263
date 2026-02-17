@@ -40,7 +40,7 @@ class Dog extends Animal {
         let dogBody = this.animalBody.getBoundingClientRect();
         let d = distance(birdEl.x, birdEl.y, dogBody.x, dogBody.y)
                 
-        if (d < 50){
+        if (d < 10){
             console.log("collision")
             console.log( bird.animalBody.style.background)
             bird.animalBody.style.background = `orange`
