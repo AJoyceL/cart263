@@ -12,6 +12,7 @@
  
     body{
           background:black;
+          text-wrap: wrap;
         }
  
         .theButtons {
@@ -76,4 +77,5 @@
         padding-left:10px;
         font-size: 12px;
         font-weight: normal;
+
     }
