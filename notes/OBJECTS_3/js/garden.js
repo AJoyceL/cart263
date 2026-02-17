@@ -1,6 +1,15 @@
 window.onload = function (){
 // Our garden
 let garden = {
+  // The number of dogs in our garden
+    numDogs: 10,
+    dogs: [],
+
+    // An array to store the individual birds
+    birds: [],
+    // How many birds in the garden
+    numBirds: 20,
+
     /*grass object */
     grass: {
       // The color of the grass (background)
@@ -41,11 +50,67 @@ let garden = {
     garden.grass.grassDiv.classList.add("grass");
     garden.grass.grassDiv.style.background = `rgb(${garden.grass.grassColor.r},${garden.grass.grassColor.g},${garden.grass.grassColor.b})`;
     document.getElementsByTagName("main")[0].appendChild(garden.grass.grassDiv);
-
-    
-
   }
+
+  //dogs
+  function createDogs(){
+    for (let i = 0; i < garden.numDogs; i++) {
+    let x = Math.random()*window.innerWidth;
+    let y = Math.random()*100;
+    let dog = new Dog(x, y,15,15);
+    garden.dogs.push(dog);
+    }
+  }
+
+  function renderAnimals(){
+    // Go through all the animals and move, wrap, and display them
+    for (let i = 0; i < garden.dogs.length; i++) {
+      let dog = garden.dogs[i];
+      dog.renderAnimal();
+    }
+
+    // Go through all the birds and move, wrap, and display them
+    for (let i = 0; i < garden.birds.length; i++) {
+      let bird = garden.birds[i];
+      bird.renderAnimal();
+    }
+  }
+
+  //birds
+  function createBirds(){
+    for (let i = 0; i < garden.numBirds; i++) {
+      let x = Math.random()*window.innerWidth;
+      let y = Math.random()*100;
+      let bird = new Bird(x, y,15,15);
+      garden.birds.push(bird);
+    }
+  }
+
+  //calls all our animations
+  function updateGarden(){
+    // Go through all the animals and move, wrap, and display them
+    for (let i = 0; i < garden.dogs.length; i++) {
+      let dog = garden.dogs[i];
+      dog.move();
+      dog.wrap();
+    }
+    
+    // Go through all the birds and move, wrap, and display them
+    for (let i = 0; i < garden.birds.length; i++) {
+      let bird = garden.birds[i];
+      bird.move();
+      bird.wrap();
+    }
+
+    window.requestAnimationFrame(updateGarden);
+  }
+
   createAndRenderTheGarden();
+  createDogs();
+  createBirds();
+  renderAnimals();
+  updateGarden();
+
 }
 
   
