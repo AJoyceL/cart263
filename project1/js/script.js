@@ -35,4 +35,31 @@ function setup(){
     // }
     // nextBtn.addEventListener("click", nextPage);
 
+
+
+    // creates a save button
+    let saveBtn = document.createElement("button");
+    saveBtn.textContent = "Save";
+    saveBtn.classList.add("saveBtn");
+    document.getElementById("parent").appendChild(saveBtn);
+
+    // saves the journal entry to local storage
+    saveBtn.addEventListener("click", saveEntry);
+    function saveEntry(event) {
+        console.log(this.parentElement);
+        let saveID = this.parentElement.id;
+        let entryText = this.parentElement.querySelector("#entry").textContent;
+        console.log(saveID);
+        console.log(entryText);
+        localStorage.setItem(saveID, entryText);
+        alert("Journal entry saved!");
+
+        // if (entryText === "") {
+        //     localStorage.removeItem(saveID, entryText);
+        //     entryText = "";
+        // } 
+        
+    }
+
+    
 }
