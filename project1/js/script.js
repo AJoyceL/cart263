@@ -37,29 +37,43 @@ function setup(){
 
 
 
+    /*
+        Save and Retrieval buttons
+    */
     // creates a save button
     let saveBtn = document.createElement("button");
     saveBtn.textContent = "Save";
     saveBtn.classList.add("saveBtn");
     document.getElementById("parent").appendChild(saveBtn);
 
-    // saves the journal entry to local storage
+    // saves the journal entry and date to local storage
     saveBtn.addEventListener("click", saveEntry);
-    function saveEntry(event) {
+    function saveEntry() {
         console.log(this.parentElement);
         let saveID = this.parentElement.id;
         let entryText = this.parentElement.querySelector("#entry").textContent;
         console.log(saveID);
         console.log(entryText);
-        localStorage.setItem(saveID, entryText);
-        alert("Journal entry saved!");
-
-        // if (entryText === "") {
-        //     localStorage.removeItem(saveID, entryText);
-        //     entryText = "";
-        // } 
-        
+        localStorage.setItem(saveID + "date", formattedDate);   //saves the date of the entry to local storage
+        localStorage.setItem(saveID + "entry", entryText);  //saves the journal entry to local storage
+        // alert("Journal entry saved!");
     }
 
+    // creates a retrieve button
+    let retrieveBtn = document.createElement("button");
+    retrieveBtn.textContent = "Retrieve";
+    retrieveBtn.classList.add("retrieveBtn");
+    document.getElementById("parent").appendChild(retrieveBtn);
+    retrieveBtn.addEventListener("click", retrieveEntry);
+
+    // calls the retrieval the journal entry from local storage
+    function retrieveEntry() {
+        let saveID = this.parentElement.id;
+        let entryText = localStorage.getItem(saveID);
+        console.log(saveID);
+        console.log(entryText);
+        document.getElementById(saveID).querySelector("#entry").textContent = entryText;
+        document.getElementById(saveID).querySelector("h3").textContent = localStorage.getItem(saveID + "date");
+    }
     
 }

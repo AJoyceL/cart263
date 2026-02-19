@@ -46,6 +46,7 @@ p{
     padding: 10px;
 }
 
+
 /* ID ELEMENTS */
 #parent{
     position: relative;
@@ -62,7 +63,7 @@ p{
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 80%;
     margin: 0;
     box-sizing: border-box;
     /* overflow: auto; */
@@ -102,11 +103,27 @@ p{
     font-style: bold;
     font-size: 18px;
 
-    position: relative;
+    position: fixed;
     border: 1.5px solid rgb(37, 37, 37);
     border-radius: 50px;
     padding: 10px 20px;
-    margin: 10px;
+    margin-bottom: 5px;
     background: none;
+    left: 400px;
+}
+
+.retrieveBtn{
+    font-family: "Shadows Into Light Two", cursive;
+    font-weight: 400;
+    font-style: bold;
+    font-size: 18px;
+
+    position: fixed;
+    border: 1.5px solid rgb(37, 37, 37);
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin-bottom: 5px;
+    background: none;
+    left: 500px;
 }
   
