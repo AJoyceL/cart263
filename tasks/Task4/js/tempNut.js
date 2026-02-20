@@ -5,7 +5,7 @@ class TempNut {
         this.tempNutColor = tempNutColor;
         this.tempNutDiv = document.createElement("div");
         this.size = size;
-        self = this;
+        this.collected = false;
     }
 
     renderTempNut() {

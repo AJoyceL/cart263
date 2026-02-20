@@ -20,6 +20,7 @@ class Squirrel {
         this.squirrelBody.src = path
         this.vx = Math.random() * 2 + 1;
         this.vy = Math.random() * 2 + 1;
+        this.nutsCollected = 0;
     }
 
     renderSquirrel() {
@@ -34,6 +35,19 @@ class Squirrel {
         document.getElementsByClassName("grass")[0].appendChild(this.squirrelBody);
     }
 
+    catchNut(tempNut) {
+        let nutEl = tempNut.tempNutDiv.getBoundingClientRect();
+        let squirrelBody = this.squirrelBody.getBoundingClientRect();
+        let d = distance(nutEl.x, nutEl.y, squirrelBody.x, squirrelBody.y);
+        if (d < 10) {
+            tempNut.collected = true;
+            this.nutsCollected++;
+            if (tempNut.tempNutDiv.parentNode) {
+                tempNut.tempNutDiv.parentNode.removeChild(tempNut.tempNutDiv);
+            }
+        }
+    }
+    
     // Move the squirrel according to its velocity
     move() {
         this.x += this.vx;
@@ -67,4 +81,9 @@ class Squirrel {
         this.squirrelBody.style.top = this.y + "px";
     }
 
+}
+
+
+function distance(x0, y0, x1, y1) {
+  return Math.hypot(x1 - x0, y1 - y0);
 }
