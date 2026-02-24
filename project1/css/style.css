@@ -57,16 +57,19 @@ p{
     background:rgb(216, 207, 195);
     margin: auto;
     height: 80vh;
-    width: 70vh;
+    width: 60vh;
     word-wrap:wrap;
+    z-index: 10;
 }
- #entry{
+
+#entry{
     position: relative;
     top: 0;
     left: 0;
     width: 100%;
     height: 80%;
     margin: 0;
+    z-index: 10;
 }
 
 
@@ -78,26 +81,16 @@ p{
     font-style: bold;
     font-size: 18px;
 
-    position: relative;
+    position: fixed;
     border: 1.5px solid rgb(37, 37, 37);
     border-radius: 50px;
-    padding: 10px 20px;
-    margin-bottom: 5px;
+    padding: .5em 2em;
+    margin-bottom: 1em;
     background: whitesmoke;
-    right: 100px;
+    z-index: 10;
+    bottom: 50vh;
+    right: 10vw;
 }
-
-/* .nextPage{
-    position: absolute;
-    background:rgb(216, 207, 195);
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    overflow: auto;
-    box-sizing: border-box;
-} */
 
 .saveBtn{
     font-family: "Shadows Into Light Two", cursive;
@@ -108,11 +101,12 @@ p{
     position: fixed;
     border: 1.5px solid rgb(37, 37, 37);
     border-radius: 50px;
-    padding: 10px 20px;
-    margin-bottom: 5px;
+    padding: .5em 2em;
+    margin-bottom: 1em;
     background: whitesmoke;
     bottom: 0vh;
-    left: 45vw;
+    left: 40vw;
+    z-index: 10;
 
 }
 
@@ -125,11 +119,12 @@ p{
     position: fixed;
     border: 1.5px solid rgb(37, 37, 37);
     border-radius: 50px;
-    padding: 10px 20px;
-    margin-bottom: 5px;
+    padding: .5em 2em;
+    margin-bottom: 1em;
     background: whitesmoke;
     bottom: 0vh;
-    left: 55vw;
+    left: 50vw;
+    z-index: 10;
 }
   
 @media only screen and (max-width: 780px) {
@@ -140,7 +135,6 @@ p{
     #parent {
         width: 70vh;
         height: 80vh;
-
     }
     
     #entry {
@@ -149,7 +143,7 @@ p{
 
     .nextBtn {
         font-size: .7em;
-        right: 10vw;
+        right: 20vw;
     }
     
     .saveBtn {

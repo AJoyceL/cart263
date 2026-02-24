@@ -25,21 +25,9 @@ function setup(){
     //creates a next button
     let nextBtn = document.createElement("button");
     nextBtn.textContent = "Next";
-    nextBtn.classList.add("nextBtn");
-    document.querySelector("body");
+    nextBtn.classList.add("nextBtn"); 
     container.appendChild(nextBtn);
     
-    // function nextPage() {
-    //     entry.contentEditable = false;
-    //     entry.classList.add("locked");
-    //     let newP = document.createElement("p");
-    //     newP.contentEditable = true;
-    //     newP.textContent = entry.textContent;
-    //     document.getElementById("parent").appendChild(newP);
-    // }
-    // nextBtn.addEventListener("click", nextPage);
-
-
 
     /*
         Save and Retrieval buttons
@@ -52,6 +40,8 @@ function setup(){
 
     // saves the journal entry and date to local storage
     saveBtn.addEventListener("click", saveEntry);
+
+    // calls the saving of the journal entry and date to local storage
     function saveEntry() {
         console.log(this.parentElement);
         let saveID = this.parentElement.id;
@@ -67,6 +57,8 @@ function setup(){
     retrieveBtn.textContent = "Retrieve";
     retrieveBtn.classList.add("retrieveBtn");
     container.appendChild(retrieveBtn);
+
+    // retrieves the journal entry and date from local storage
     retrieveBtn.addEventListener("click", retrieveEntry);
 
     // calls the retrieval the journal entry from local storage
