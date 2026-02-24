@@ -15,18 +15,19 @@ function setup(){
     // changes the journal entry
     // contentEditable from: https://www.w3schools.com/jsref/prop_html_contenteditable.asp
     let entry = document.getElementById("entry");
-    entry.addEventListener("click", journalEntry());
+    const container = entry.parentElement;
+    entry.addEventListener("click", journalEntry);
     function journalEntry() {
         entry.contentEditable = true;
-        entry
         entry.style.outline = "none";
-    };
+    }
 
     //creates a next button
     let nextBtn = document.createElement("button");
     nextBtn.textContent = "Next";
     nextBtn.classList.add("nextBtn");
-    document.querySelector("body").appendChild(nextBtn);
+    document.querySelector("body");
+    container.appendChild(nextBtn);
     
     // function nextPage() {
     //     entry.contentEditable = false;
@@ -47,7 +48,7 @@ function setup(){
     let saveBtn = document.createElement("button");
     saveBtn.textContent = "Save";
     saveBtn.classList.add("saveBtn");
-    document.querySelector("body").appendChild(saveBtn);
+    container.appendChild(saveBtn);
 
     // saves the journal entry and date to local storage
     saveBtn.addEventListener("click", saveEntry);
@@ -59,14 +60,13 @@ function setup(){
         console.log(entryText);
         localStorage.setItem(saveID + "date", formattedDate);   //saves the date of the entry to local storage
         localStorage.setItem(saveID + "entry", entryText);  //saves the journal entry to local storage
-        // alert("Journal entry saved!");
     }
 
     // creates a retrieve button
     let retrieveBtn = document.createElement("button");
     retrieveBtn.textContent = "Retrieve";
     retrieveBtn.classList.add("retrieveBtn");
-    document.querySelector("body").appendChild(retrieveBtn);
+    container.appendChild(retrieveBtn);
     retrieveBtn.addEventListener("click", retrieveEntry);
 
     // calls the retrieval the journal entry from local storage
