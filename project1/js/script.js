@@ -2,6 +2,10 @@ window.onload = setup;
 
 /** function setup */
 function setup(){
+    //background colour change
+    let bg = document.querySelector("body");
+    bg.style.backgroundColor = "rgb(83, 66, 54)";
+
     // date https://www.geeksforgeeks.org/javascript/javascript-date-objects/
     const now = new Date();// default date constructor
     let formattedDate = now.toLocaleDateString('en-CA'); // sets the output format to YYYY-MM-DD
@@ -18,12 +22,11 @@ function setup(){
         entry.style.outline = "none";
     };
 
-
-    // //creates a next button
-    // let nextBtn = document.createElement("button");
-    // nextBtn.textContent = "Next";
-    // nextBtn.classList.add("nextBtn");
-    // document.getElementById("parent").appendChild(nextBtn);
+    //creates a next button
+    let nextBtn = document.createElement("button");
+    nextBtn.textContent = "Next";
+    nextBtn.classList.add("nextBtn");
+    document.querySelector("body").appendChild(nextBtn);
     
     // function nextPage() {
     //     entry.contentEditable = false;
@@ -44,7 +47,7 @@ function setup(){
     let saveBtn = document.createElement("button");
     saveBtn.textContent = "Save";
     saveBtn.classList.add("saveBtn");
-    document.getElementById("parent").appendChild(saveBtn);
+    document.querySelector("body").appendChild(saveBtn);
 
     // saves the journal entry and date to local storage
     saveBtn.addEventListener("click", saveEntry);
@@ -63,7 +66,7 @@ function setup(){
     let retrieveBtn = document.createElement("button");
     retrieveBtn.textContent = "Retrieve";
     retrieveBtn.classList.add("retrieveBtn");
-    document.getElementById("parent").appendChild(retrieveBtn);
+    document.querySelector("body").appendChild(retrieveBtn);
     retrieveBtn.addEventListener("click", retrieveEntry);
 
     // calls the retrieval the journal entry from local storage
@@ -72,7 +75,7 @@ function setup(){
         let entryText = localStorage.getItem(saveID);
         console.log(saveID);
         console.log(entryText);
-        document.getElementById(saveID).querySelector("#entry").textContent = entryText;
+        document.getElementById(saveID).querySelector("#entry").textContent = localStorage.getItem(saveID + "entry");
         document.getElementById(saveID).querySelector("h3").textContent = localStorage.getItem(saveID + "date");
     }
     

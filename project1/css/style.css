@@ -7,7 +7,7 @@
 
 /* CSS */
 body{
-    background:rgb(83, 66, 54);
+    /* background:rgb(83, 66, 54); */
     margin:1%;
     padding:0;
     opacity: .85;
@@ -48,14 +48,16 @@ p{
 
 
 /* ID ELEMENTS */
+
+/* main */
 #parent{
     position: relative;
     overflow-y: scroll;
     overflow-x: hidden;
     background:rgb(216, 207, 195);
     margin: auto;
-    height: 700px;
-    width: 600px;
+    height: 80vh;
+    width: 70vh;
     word-wrap:wrap;
 }
  #entry{
@@ -65,13 +67,12 @@ p{
     width: 100%;
     height: 80%;
     margin: 0;
-    box-sizing: border-box;
-    /* overflow: auto; */
 }
 
 
+
 /* CLASS ELEMENTS */
-/* .nextBtn{
+.nextBtn{
     font-family: "Shadows Into Light Two", cursive;
     font-weight: 400;
     font-style: bold;
@@ -81,9 +82,10 @@ p{
     border: 1.5px solid rgb(37, 37, 37);
     border-radius: 50px;
     padding: 10px 20px;
-    margin: 10px;
-    background: none;
-} */
+    margin-bottom: 5px;
+    background: whitesmoke;
+    right: 100px;
+}
 
 /* .nextPage{
     position: absolute;
@@ -108,8 +110,10 @@ p{
     border-radius: 50px;
     padding: 10px 20px;
     margin-bottom: 5px;
-    background: none;
-    left: 400px;
+    background: whitesmoke;
+    bottom: 0vh;
+    left: 45vw;
+
 }
 
 .retrieveBtn{
@@ -123,7 +127,32 @@ p{
     border-radius: 50px;
     padding: 10px 20px;
     margin-bottom: 5px;
-    background: none;
-    left: 500px;
+    background: whitesmoke;
+    bottom: 0vh;
+    left: 55vw;
 }
   
+@media (min-height: 600px) {
+    #parent {
+        width: 80vh;
+        height: 80vh;
+
+    }
+    
+    #entry {
+        height: 70%;
+        font-size: 15px;
+    }
+
+    .nextBtn {
+        right: 10vw;
+    }
+    
+    .saveBtn {
+        left: 50vw;
+    }
+    
+    .retrieveBtn {
+        left: 40vw;
+    }
+}
