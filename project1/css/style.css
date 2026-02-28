@@ -58,6 +58,7 @@ p{
     margin: auto;
     height: 80vh;
     width: 60vh;
+    border-radius: 2em;
     word-wrap:wrap;
     z-index: 10;
 }
@@ -75,7 +76,7 @@ p{
 
 
 /* CLASS ELEMENTS */
-.nextBtn{
+.oceanBtn{
     font-family: "Shadows Into Light Two", cursive;
     font-weight: 400;
     font-style: bold;
@@ -141,7 +142,7 @@ p{
         height: 70%;
     }
 
-    .nextBtn {
+    .oceanBtn {
         font-size: .7em;
         right: 20vw;
     }

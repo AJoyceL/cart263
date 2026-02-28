@@ -23,11 +23,26 @@ function setup(){
     }
 
     //creates a next button
-    let nextBtn = document.createElement("button");
-    nextBtn.textContent = "Next";
-    nextBtn.classList.add("nextBtn"); 
-    container.appendChild(nextBtn);
+    let oceanBtn = document.createElement("button");
+    oceanBtn.textContent = "ocean";
+    oceanBtn.classList.add("oceanBtn"); 
+    container.appendChild(oceanBtn);
     
+    // calls ocean.js to create a canvas element and draw on it
+    oceanBtn.addEventListener("click", function () {
+        // create the ocean canvas inside the entry container (placed after buttons)
+        if (createOcean === 'function') {
+            createOcean(container);
+            oceanBtn.disabled = true;
+            oceanBtn.textContent = 'ocean';
+        } else if (window.createOcean) {
+            window.createOcean(container);
+            oceanBtn.disabled = true;
+            oceanBtn.textContent = 'ocean';
+        } else {
+            console.warn('createOcean() not available');
+        }
+    });
 
     /*
         Save and Retrieval buttons
