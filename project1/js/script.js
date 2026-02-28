@@ -2,6 +2,9 @@ window.onload = setup;
 
 /** function setup */
 function setup(){
+    /*
+        general setup for the journal page
+    */
     //background colour change
     let bg = document.querySelector("body");
     bg.style.backgroundColor = "rgb(83, 66, 54)";
@@ -22,7 +25,11 @@ function setup(){
         entry.style.outline = "none";
     }
 
-    //creates a next button
+
+    /*
+        themes buttons
+    */
+    //creates a ocean button
     let oceanBtn = document.createElement("button");
     oceanBtn.textContent = "ocean";
     oceanBtn.classList.add("oceanBtn"); 
@@ -43,6 +50,7 @@ function setup(){
             console.warn('createOcean() not available');
         }
     });
+
 
     /*
         Save and Retrieval buttons

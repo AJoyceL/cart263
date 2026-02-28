@@ -1,5 +1,8 @@
-// OCEAN CLASSES
-// reference https://youtu.be/LLfhY4eVwDY?si=1RROuFFVRUxol5FM
+/*
+  OCEAN WAVE ANIMATION
+  
+  by: reference https://youtu.be/LLfhY4eVwDY?si=1RROuFFVRUxol5FM
+*/
 
 // Point class represents a single point in the wave
 class Point {
