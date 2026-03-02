@@ -4,3 +4,26 @@ canvas{
     left: 0%;
 
 }
+
+
+/* flower garden css */
+.grass{
+    width: 100vw;
+    height:calc(100vh - 280px);
+    position:relative;
+    padding:0;
+    margin:0;
+}
+
+/* flower style */
+.flower{
+    padding:0;
+    margin:0;
+    position:absolute;
+}
+.petal{
+    padding:0;
+    margin:0;
+    position:absolute;
+    border-style:solid;
+}

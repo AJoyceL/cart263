@@ -26,6 +26,8 @@ function setup(){
     }
 
 
+
+
     /*
         themes buttons
     */
@@ -71,7 +73,7 @@ function setup(){
         }
     });
 
-
+    //creates a flower button
     let flowerBtn = document.createElement("button");
     flowerBtn.textContent = "flower";
     flowerBtn.classList.add("flowerBtn");
@@ -91,6 +93,9 @@ function setup(){
             tradBtn.disabled = false;
         } 
     });
+
+
+
 
     /*
         Save and Retrieval buttons

@@ -1,48 +1,58 @@
 function createFlower(container) {
     if (!container || !(container)) return;
-    
-    const canvas = document.createElement('canvas');
-    canvas.id = 'flowerCanvas';
+
+    const flowerCanvas = document.createElement('canvas');
+    flowerCanvas.id = 'flowerCanvas';
     // cover the whole viewport as a background layer
     function flowerSizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        canvas.style.width = window.innerWidth + 'px';
-        canvas.style.height = window.innerHeight + 'px';
+        flowerCanvas.width = window.innerWidth;
+        flowerCanvas.height = window.innerHeight;
+        flowerCanvas.style.width = window.innerWidth + 'px';
+        flowerCanvas.style.height = window.innerHeight + 'px';
     }
 
     flowerSizeCanvas();
-    canvas.style.position = 'fixed';
-    canvas.style.left = '0';
-    canvas.style.top = '0';
-    canvas.style.zIndex = '-1';
-    canvas.style.pointerEvents = 'none';
-    canvas.style.backgroundColor = '#2eceff';
-    document.body.appendChild(canvas);
+    flowerCanvas.style.position = 'fixed';
+    flowerCanvas.style.left = '0';
+    flowerCanvas.style.top = '0';
+    flowerCanvas.style.pointerEvents = 'none';
+    flowerCanvas.style.backgroundColor = '#2dceff';
+    document.body.appendChild(flowerCanvas);
 
     // ensure the page content sits above the canvas
     document.body.style.position = document.body.style.position || 'relative';
 
-    const context = canvas.getContext('2d');
+    const flowerContext = flowerCanvas.getContext('2d');
     
-    // Animation loop
-    function animate() {
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        context.fillStyle = '#2eceff';
-        context.fillRect(0, 0, canvas.width, canvas.height);
-        
-        // Add flower drawing code here
-        
-        requestAnimationFrame(animate);
-    }
-    
-    animate();
+    //draws the sun
+    function drawSun() {
+        flowerContext.beginPath();
+        flowerContext.ellipse(100, 100, 200, 200, 0, 0, Math.PI * 2);
+        flowerContext.fillStyle = '#ffe228';
+        flowerContext.fill();
+        flowerContext.closePath();
 
-    // handle window resize
-    function onResize() {
-        flowerSizeCanvas();
+
     }
-    window.addEventListener('resize', onResize);
+    //draws the grass
+    function drawGrass() {
+        flowerContext.fillStyle = "#1ba10f";
+        flowerContext.fillRect(0, innerHeight / 2, innerWidth, innerHeight / 2);
+    }
+    
+    function createGarden() {
+        drawGrass();
+        drawSun();
+    }
+
+    // Animation loop
+    function flowerAnimate() {
+
+        createGarden();
+        requestAnimationFrame(flowerAnimate);
+    }
+    
+    flowerAnimate();
 }
 
 window.createFlower = createFlower;
