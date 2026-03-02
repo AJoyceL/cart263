@@ -37,20 +37,36 @@ function setup(){
     
     // calls ocean.js to create a canvas element and draw on it
     oceanBtn.addEventListener("click", function () {
-        // create the ocean canvas inside the entry container (placed after buttons)
-        if (createOcean === 'function') {
-            createOcean(container);
-            oceanBtn.disabled = true;
-            oceanBtn.textContent = 'ocean';
-        } else if (window.createOcean) {
-            window.createOcean(container);
-            oceanBtn.disabled = true;
-            oceanBtn.textContent = 'ocean';
-        } else {
-            console.warn('createOcean() not available');
+        // Hide flower if it's showing
+        const flowerCanvas = document.querySelector('#flowerCanvas');
+        if (flowerCanvas) {
+            flowerCanvas.remove();
         }
+        window.createOcean(container);
+        oceanBtn.disabled = true;
+        flowerBtn.disabled = false;
     });
 
+
+    let flowerBtn = document.createElement("button");
+    flowerBtn.textContent = "flower";
+    flowerBtn.classList.add("flowerBtn");
+    container.appendChild(flowerBtn);
+
+    //calls flower.js to create a canvas element and draw on it
+    flowerBtn.addEventListener("click", function () {
+        // Hide ocean when flower is clicked
+        const oceanCanvas = document.querySelector('#oceanCanvas');
+        if (oceanCanvas) {
+            oceanCanvas.remove();
+        }
+        
+        if (window.createFlower) {
+            window.createFlower(container);
+            flowerBtn.disabled = true;
+            oceanBtn.disabled = false;
+        } 
+    });
 
     /*
         Save and Retrieval buttons
