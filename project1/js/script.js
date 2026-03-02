@@ -29,6 +29,27 @@ function setup(){
     /*
         themes buttons
     */
+
+    //creates a traditional button
+    let tradBtn = document.createElement("button");
+    tradBtn.textContent = "basic";
+    tradBtn.classList.add("tradBtn")
+    container.appendChild(tradBtn);
+    
+    tradBtn.addEventListener("click", function(){
+        const oceanCanvas = document.querySelector("#oceanCanvas");
+        const flowerCanvas = document.querySelector("#flowerCanvas");
+        if (oceanCanvas) {
+            oceanCanvas.remove();
+        }
+        if (flowerCanvas) {
+            flowerCanvas.remove();
+        }
+        tradBtn.disabled = true;
+        oceanBtn.disabled = false;
+        flowerBtn.disabled = false;
+    });
+
     //creates a ocean button
     let oceanBtn = document.createElement("button");
     oceanBtn.textContent = "ocean";
@@ -38,13 +59,16 @@ function setup(){
     // calls ocean.js to create a canvas element and draw on it
     oceanBtn.addEventListener("click", function () {
         // Hide flower if it's showing
-        const flowerCanvas = document.querySelector('#flowerCanvas');
+        const flowerCanvas = document.querySelector("#flowerCanvas");
         if (flowerCanvas) {
             flowerCanvas.remove();
         }
-        window.createOcean(container);
-        oceanBtn.disabled = true;
-        flowerBtn.disabled = false;
+        if (window.createOcean) {
+            window.createOcean(container);
+            oceanBtn.disabled = true;
+            flowerBtn.disabled = false;
+            tradBtn.disabled = false;
+        }
     });
 
 
@@ -55,16 +79,16 @@ function setup(){
 
     //calls flower.js to create a canvas element and draw on it
     flowerBtn.addEventListener("click", function () {
-        // Hide ocean when flower is clicked
-        const oceanCanvas = document.querySelector('#oceanCanvas');
+        // hide ocean when flower is clicked
+        const oceanCanvas = document.querySelector("#oceanCanvas");
         if (oceanCanvas) {
             oceanCanvas.remove();
         }
-        
         if (window.createFlower) {
             window.createFlower(container);
             flowerBtn.disabled = true;
             oceanBtn.disabled = false;
+            tradBtn.disabled = false;
         } 
     });
 

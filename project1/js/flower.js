@@ -1,12 +1,6 @@
 function createFlower(container) {
     if (!container || !(container)) return;
-
-    // Remove old flower canvas if it exists
-    const existingFlower = document.querySelector('#flowerCanvas');
-    if (existingFlower) {
-        existingFlower.remove();
-    }
-
+    
     const canvas = document.createElement('canvas');
     canvas.id = 'flowerCanvas';
     // cover the whole viewport as a background layer
@@ -30,14 +24,23 @@ function createFlower(container) {
     document.body.style.position = document.body.style.position || 'relative';
 
     const context = canvas.getContext('2d');
-    context.fillStyle = '#2628be';
-    context.fillRect(0, 0, canvas.width, canvas.height);
+    
+    // Animation loop
+    function animate() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.fillStyle = '#2eceff';
+        context.fillRect(0, 0, canvas.width, canvas.height);
+        
+        // Add flower drawing code here
+        
+        requestAnimationFrame(animate);
+    }
+    
+    animate();
 
     // handle window resize
     function onResize() {
         flowerSizeCanvas();
-        context.fillStyle = '#2eceff';
-        context.fillRect(0, 0, canvas.width, canvas.height);    
     }
     window.addEventListener('resize', onResize);
 }
