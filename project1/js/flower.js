@@ -34,24 +34,40 @@ function createFlower(container) {
 
 
     }
+
     //draws the grass
     function drawGrass() {
         flowerContext.fillStyle = "#1ba10f";
         flowerContext.fillRect(0, innerHeight / 2, innerWidth, innerHeight / 2);
     }
-    
+
+    //draws the garden
     function createGarden() {
         drawGrass();
         drawSun();
     }
 
-    // Animation loop
-    function flowerAnimate() {
+    // build a fixed set of flowers on the grass
+    const flowers = [];
+    const numFlowers = 40;
+    const petalCols = ["#ffffff", "#ffd900"]; 
 
-        createGarden();
+    for (let i = 0; i < numFlowers; i++) {
+        const x = Math.random() * flowerCanvas.width;
+        const y = flowerCanvas.height / 2 + Math.random() * (flowerCanvas.height / 2);
+        const r = Math.random() * 20 + 5; 
+        flowers.push(new Petal(flowerContext, x, y, r, petalCols));
+    }
+
+    //renders everyhting
+    function flowerAnimate() {
+        createGarden(); //calls the garden
+
+        flowers.forEach(f => f.draw());// calls the flowers
+
         requestAnimationFrame(flowerAnimate);
     }
-    
+
     flowerAnimate();
 }
 
