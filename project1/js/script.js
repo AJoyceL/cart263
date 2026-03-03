@@ -41,15 +41,20 @@ function setup(){
     tradBtn.addEventListener("click", function(){
         const oceanCanvas = document.querySelector("#oceanCanvas");
         const flowerCanvas = document.querySelector("#flowerCanvas");
+        const pondCanvas = document.querySelector("#pondCanvas");
         if (oceanCanvas) {
             oceanCanvas.remove();
         }
         if (flowerCanvas) {
             flowerCanvas.remove();
         }
+        if (pondCanvas) {
+            pondCanvas.remove();
+        }
         tradBtn.disabled = true;
         oceanBtn.disabled = false;
         flowerBtn.disabled = false;
+        pondBtn.disabled = false;
     });
 
     //creates a ocean button
@@ -62,8 +67,12 @@ function setup(){
     oceanBtn.addEventListener("click", function () {
         // Hide themes if it's showing
         const flowerCanvas = document.querySelector("#flowerCanvas");
+        const pondCanvas = document.querySelector("#pondCanvas");
         if (flowerCanvas) {
             flowerCanvas.remove();
+        }
+        if (pondCanvas) {
+            pondCanvas.remove();
         }
         //calls ocean theme
         if (window.createOcean) {
@@ -71,6 +80,7 @@ function setup(){
             oceanBtn.disabled = true;
             flowerBtn.disabled = false;
             tradBtn.disabled = false;
+            pondBtn.disabled = false;
         }
     });
 
@@ -84,8 +94,12 @@ function setup(){
     flowerBtn.addEventListener("click", function () {
         // hide themes if it's showing
         const oceanCanvas = document.querySelector("#oceanCanvas");
+        const pondCanvas = document.querySelector("#pondCanvas");
         if (oceanCanvas) {
             oceanCanvas.remove();
+        }
+        if (pondCanvas) {
+            pondCanvas.remove();
         }
         //calls flower theme
         if (window.createFlower) {
@@ -93,6 +107,7 @@ function setup(){
             flowerBtn.disabled = true;
             oceanBtn.disabled = false;
             tradBtn.disabled = false;
+            pondBtn.disabled = false;
         } 
     });
 
