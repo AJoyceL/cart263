@@ -60,11 +60,12 @@ function setup(){
     
     // calls ocean.js to create a canvas element and draw on it
     oceanBtn.addEventListener("click", function () {
-        // Hide flower if it's showing
+        // Hide themes if it's showing
         const flowerCanvas = document.querySelector("#flowerCanvas");
         if (flowerCanvas) {
             flowerCanvas.remove();
         }
+        //calls ocean theme
         if (window.createOcean) {
             window.createOcean(container);
             oceanBtn.disabled = true;
@@ -81,17 +82,43 @@ function setup(){
 
     //calls flower.js to create a canvas element and draw on it
     flowerBtn.addEventListener("click", function () {
-        // hide ocean when flower is clicked
+        // hide themes if it's showing
         const oceanCanvas = document.querySelector("#oceanCanvas");
         if (oceanCanvas) {
             oceanCanvas.remove();
         }
+        //calls flower theme
         if (window.createFlower) {
             window.createFlower(container);
             flowerBtn.disabled = true;
             oceanBtn.disabled = false;
             tradBtn.disabled = false;
         } 
+    });
+
+    let pondBtn = document.createElement("button");
+    pondBtn.textContent = "pond";
+    pondBtn.classList.add("pondBtn");
+    container.appendChild(pondBtn);
+
+    pondBtn.addEventListener("click", function() {
+        //hide themes if it's shopwing
+        const oceanCanvas = document.querySelector("#oceanCanvas");
+        const flowerCanvas = document.querySelector("#flowerCanvas");
+        if (oceanCanvas) {
+            oceanCanvas.remove();
+        }
+        if (flowerCanvas) {
+            flowerCanvas.remove();
+        }
+        //calls pond theme
+        if(createPond) {
+            window.createPond(container);
+            pondBtn.disabled = true;
+            flowerBtn.disabled = false;
+            oceanBtn.disabled = false;
+            tradBtn.disabled = false;
+        }
     });
 
 

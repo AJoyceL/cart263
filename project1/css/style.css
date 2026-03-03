@@ -76,6 +76,8 @@ p{
 
 
 /* CLASS ELEMENTS */
+
+/* themes btn */
 .tradBtn{
     font-family: "Shadows Into Light Two", cursive;
     font-weight: 400;
@@ -127,6 +129,25 @@ p{
     right: 10vw;
 }
 
+.pondBtn{
+    font-family: "Shadows Into Light Two", cursive;
+    font-weight: 400;
+    font-style: bold;
+    font-size: 18px;
+
+    position: fixed;
+    border: 1.5px solid rgb(37, 37, 37);
+    border-radius: 50px;
+    padding: .5em 2em;
+    margin-bottom: 1em;
+    background: whitesmoke;
+    z-index: 10;
+    bottom: 30vh;
+    right: 10vw;
+}
+
+
+/* Save and retrieval btn */
 .saveBtn{
     font-family: "Shadows Into Light Two", cursive;
     font-weight: 400;
