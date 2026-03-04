@@ -32,12 +32,28 @@ function createPond(container) {
 
     const pondContext = pondCanvas.getContext('2d');
 
+    //calls lilypads
+    const lilyPads = [];
+    const numLilypads = 25;
+    const lilypadColour = [];
+
+    //calls colours
+    for (let i = 0; i < numLilypads / 2; i++) {
+        lilypadColour.push("#1ba10f");
+        lilypadColour.push("#116e08");
+    }
+
+    //calls lilypads
+    for (let i = 0; i < numLilypads; i++) {
+        const x = Math.random() * pondCanvas.width;
+        const y = Math.random() * pondCanvas.height;
+        const r = Math.random() * 40 + 20; 
+        lilyPads.push(new LilyPad(pondContext, x, y, r, lilypadColour[i]));
+    }    
+
 
     function animate() {
-        // pondContext.clearRect(0, 0, pondCanvas.width, pondCanvas.height);
-        // // redraw background under the waves
-        // pondContext.fillStyle = '#11b1e2';
-        // pondContext.fillRect(0, 0, pondCanvas.width, pondCanvas.height);
+        lilyPads.forEach(pad => pad.draw()); //calls lilypads
 
         requestAnimationFrame(animate);
     }
