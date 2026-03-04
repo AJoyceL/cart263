@@ -39,11 +39,12 @@ class Fish {
     }
 
     //updates the fish position/movement
+    //reference: https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Bounce_off_the_walls
     update(canvasWidth, canvasHeight) {
         this.x += this.vx;
         this.y += this.vy;
 
-        // Bounce off walls
+        // Bounce off walls 
         if (this.x < this.size || this.x > canvasWidth - this.size) {
             this.vx *= -1;
         }
