@@ -49,7 +49,7 @@ function createFlower(container) {
 
     // build a fixed set of flowers on the grass
     const flowers = [];
-    const numFlowers = 40;
+    const numFlowers = 25;
     const petalCols = ["#ffffff", "#ffd900"]; 
 
     for (let i = 0; i < numFlowers; i++) {
