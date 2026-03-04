@@ -14,6 +14,18 @@ Dear Journal is an interactive web where users are invited to type out their day
 5. There are 4 themes/environements to pick from.
 
 ## Screenshot(s)
+1. Traditional leather-bound theme
+![basic](img/basic.png)
+
+2. Ocean theme
+![ocean](img/ocean.png)
+
+3. Flower field theme
+![flower](img/flower.png)
+
+4. Fish pond theme
+![pond](img/pond.png)
+
 
 ## Attribution
 - This project used Sabine's HTML_5_Canvas code.
