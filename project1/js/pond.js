@@ -32,7 +32,7 @@ function createPond(container) {
 
     const pondContext = pondCanvas.getContext('2d');
 
-    //calls lilypads
+    //LILYPADS 
     const lilyPads = [];
     const numLilypads = 25;
     const lilypadColour = [];
@@ -51,9 +51,29 @@ function createPond(container) {
         lilyPads.push(new LilyPad(pondContext, x, y, r, lilypadColour[i]));
     }    
 
+    //FISHES
+    const fish = [];
+    const numFish = 10;
+
+    for (let i = 0; i < numFish; i++) {
+        fish.push(new Fish(pondContext, pondCanvas.width, pondCanvas.height));
+    }
 
     function animate() {
+        pondContext.clearRect(0, 0, pondCanvas.width, pondCanvas.height); // Clear entire canvas
+
+        // Redraw water background
+        pondContext.fillStyle = '#11b1e2';
+        pondContext.fillRect(0, 0, pondCanvas.width, pondCanvas.height);
+
+        //calls fishes
+        fish.forEach(f => {
+            f.update(pondCanvas.width, pondCanvas.height);
+            f.drawFish();
+        });
+
         lilyPads.forEach(pad => pad.draw()); //calls lilypads
+
 
         requestAnimationFrame(animate);
     }

@@ -9,12 +9,13 @@ class Petal {
         this.ctx = ctx;
         this.xPos = xPos;
         this.yPos = yPos;
-        this.radius = radius;
+        this.radius = radius; 
         this.colours = colours;
         this.startAngle = 0;
         this.endAngle = Math.PI * 2;
     }
 
+    //draws the petals
     drawPetal(x, y, r, fillColor) {
         const c = this.ctx;
         c.fillStyle = fillColor;
@@ -27,6 +28,7 @@ class Petal {
         c.closePath();
     }
 
+    //draws the flowers
     draw() {
         const { xPos, yPos, radius, colours } = this;
         this.drawPetal(xPos, yPos + 3 * radius / 2, radius, colours[0]);
@@ -36,6 +38,7 @@ class Petal {
         this.drawPetal(xPos, yPos, radius, colours[1]);
     }
 
+    //calls the flowers
     static createFlower(ctx, xPos, yPos, radius, colours) {
         const f = new Petal(ctx, xPos, yPos, radius, colours);
         f.draw();

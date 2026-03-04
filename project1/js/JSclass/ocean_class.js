@@ -43,10 +43,6 @@ class Wave {
     }
 
     init(){
-        // this.points = new Point(
-        //     this.centerX, 
-        //     this.centerY
-        // );
         this.points = [];
         for(let i = 0; i < this.totalPoints; i++) {
             const point = new Point(
