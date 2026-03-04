@@ -2,20 +2,24 @@
 
 Joyce Angelina Lam
 
-[view project]
+[Live Site](https://ajoycel.github.io/cart263/project1/)
 
 ## Description
 Dear Journal is an interactive web where users are invited to type out their days or how they feel. 
 
 1. There is a date that changes to match the current time(real time date).
-2. The p text invites users to share their day.
+2. The journal invites users to share their day.
 3. The page has a scroll option to write as much as they want.
-4. There will be the possibility to save your journal in your files.
-5. ...
+4. The entry saves through Chrome Local Storage and is retrievable.
+5. There are 4 themes/environements to pick from.
 
 ## Screenshot(s)
 
 ## Attribution
-- This project used ...
-- [Real time date](https://www.geeksforgeeks.org/javascript/javascript-date-objects/)
+- This project used Sabine's HTML_5_Canvas code.
 - Font from Google font.
+- [Real time date](https://www.geeksforgeeks.org/javascript/javascript-date-objects/)
+- [ContentEditable](https://www.w3schools.com/jsref/prop_html_contenteditable.asp)
+- Ocean wave [referenfce](https://youtu.be/LLfhY4eVwDY?si=1RROuFFVRUxol5FM)
+- Bounce off walls [reference](https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Bounce_off_the_walls)
+
