@@ -62,7 +62,7 @@ class Fish {
         const angle = Math.atan2(this.vy, this.vx);
         c.rotate(angle);
 
-        c.globalAlpha = .7;
+        // c.globalAlpha = .7;
         c.fillStyle = this.colour;
         c.beginPath();
         c.ellipse(0, 0, this.size, this.size * 0.6, 0, 0, Math.PI * 2);
