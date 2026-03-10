@@ -1,14 +1,14 @@
-# Dear Journal
+# Dear Diary
 
 Joyce Angelina Lam
 
 [Live Site](https://ajoycel.github.io/cart263/project1/)
 
 ## Description
-Dear Journal is an interactive web where users are invited to type out their days or how they feel. 
+Dear Diary is an interactive web where users are invited to type out their days or how they feel. 
 
 1. There is a date that changes to match the current time(real time date).
-2. The journal invites users to share their day.
+2. The journal/diary invites users to share their day.
 3. The page has a scroll option to write as much as they want.
 4. The entry saves through Chrome Local Storage and is retrievable.
 5. There are 4 themes/environements to pick from.
