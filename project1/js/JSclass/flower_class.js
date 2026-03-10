@@ -44,7 +44,3 @@ class Petal {
         f.draw();
     }
 }
-
-if (typeof window !== 'undefined') {
-    window.Petal = Petal;
-}
