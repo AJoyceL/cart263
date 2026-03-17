@@ -43,7 +43,7 @@ class DrawingBoard {
     this.canvasBoundingRegion = this.canvas.getBoundingClientRect();
     this.mouseOffsetX = parseInt(e.clientX - this.canvasBoundingRegion.x);
     this.mouseOffsetY = parseInt(e.clientY - this.canvasBoundingRegion.y);
-    //console.log(this.mouseOffsetX, this.mouseOffsetY);
+    console.log(this.mouseOffsetX, this.mouseOffsetY);
      
     //differentiate which canvas
    //you can remove the console.logs /// 
