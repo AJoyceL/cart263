@@ -13,6 +13,13 @@ Dear Diary is an interactive web where users are invited to type out their days 
 4. The entry saves through Chrome Local Storage and is retrievable.
 5. There are 4 themes/environements to pick from.
 
+> for project 2
+1. make it possible to save multiple entries + offer to download it as a screenshot.
+2. add music to enhance influence (look for proof that audio helps relax).
+3. offer to change fonts?
+4. make the fishes better.
+5. enhance the visual?
+
 ## Screenshot(s)
 1. Traditional leather-bound theme
 ![basic](img/basic.png)
