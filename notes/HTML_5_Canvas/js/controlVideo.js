@@ -45,7 +45,7 @@ window.onload = function(){
     let hueInput = document.getElementById("huenum");
 
     let userProvidedBlur = 0;
-    let userProvidedDeg =0;
+    let userProvidedDeg = 0;
 
     
     filterButton_blur.addEventListener("click", function () {
