@@ -28,13 +28,10 @@ let drawingBoardA = new DrawingBoard(theCanvases[0],theContexts[0],theCanvases[0
 drawingBoardA.addObj(new CircularObj(100,100,20,"#FFC300","#E6E6FA", drawingBoardA.context))
 drawingBoardA.display();
 
-
-
 let drawingBoardB = new DrawingBoard(theCanvases[1],theContexts[1],theCanvases[1].id);
 //add a rectangular object to canvas B
 drawingBoardB.addObj(new RectangularObj(100,100,50,70,"#FF5733","#E6E6FA",drawingBoardB.context))
 drawingBoardB.display();
-
 
 let drawingBoardC = new DrawingBoard(theCanvases[2],theContexts[2],theCanvases[2].id);
 //add a freestyle object to canvas C
@@ -44,7 +41,6 @@ drawingBoardC.display();
 let drawingBoardD = new DrawingBoard(theCanvases[3],theContexts[3],theCanvases[3].id);
 drawingBoardD.addObj(new VideoObj(0,0,400,300,videoEl,drawingBoardD.context))
 drawingBoardD.display();
-
 
 /*** RUN THE ANIMATION LOOP  */
 window.requestAnimationFrame(animationLoop);
@@ -72,7 +68,9 @@ function animationLoop(){
  * Please for this exercise - do not add any new shapes other than the circular object...
  * 
  */
-
+    let circularObj = new CircularObj(100,100,20,"#FFC300","#E6E6FA", drawingBoardA.context);
+    drawingBoardA.addObj(circularObj); //calls the CircularObj
+    let canvasA = theCanvases[0];
 
 
 
@@ -84,6 +82,10 @@ function animationLoop(){
  *  
  */
 
+    let rectangularObj = new RectangularObj(100,100,50,70,"#FF5733","#E6E6FA",drawingBoardB.context);
+    drawingBoardB.addObj(rectangularObj);
+    let canvasB = theCanvases[1];
+
 /** TASK 3:(Drawing Board C) - 
  *  1: Affect the free-style shape by input from the microphone somehow, in real time...
  *  at least two properties of the free-style shape need to update and change...
@@ -91,6 +93,9 @@ function animationLoop(){
  * -> the code for the microphone has NOT been added  - you need to implement it correctly...
  *  
  */
+    let freestyleObj = new FreeStyleObj(10,100,300,"#CF9FFF","#CF9FFF", drawingBoardC.context);
+    drawingBoardC.addObj(freestyleObj);
+    let canvasC = theCanvases[2];
 
 /** TASK 4:(Video - recorded - )
  * // add filters or manipulate the pixels... take user input from the boxes..
@@ -107,8 +112,27 @@ function animationLoop(){
  * PLEASE NOTE: there will be marks taken off if you ignore the instructions ;)
  *  
  */
+    
+    let videoObj = new VideoObj(0,0,400,300,videoEl,drawingBoardD.context);
+    drawingBoardD.addObj(videoObj); //calls the VideoObj
+    let canvasD = theCanvases[3]; //calls the specific canvas
+    canvasD.style.cursor = "none"; // remove cursor
 
+    //trigers the colour change
+    canvasD.addEventListener("click", function() {
+        let colour = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
+        videoObj.changeColor(colour);
+        
+    });
 
+    //triggers the position change
+    canvasD.addEventListener("mousemove", function(e) {
+        let rect = canvasD.getBoundingClientRect();
+        let mx = e.clientX - rect.left;
+        let my = e.clientY - rect.top;
+
+        videoObj.updatePositionRect(mx, my);
+    });
 
 
 }

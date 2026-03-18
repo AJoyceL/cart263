@@ -39,6 +39,7 @@ class VideoObj {
     this.userProviderSepia = 0;
 
     filterButton_sepia.addEventListener("click", function() {
+      //get value from input field
       self.userProviderSepia = sepiaInput.value;
       console.log(self.userProviderSepia);
     });
@@ -49,6 +50,7 @@ class VideoObj {
     this.userProviderInvert = 0;
 
     filterButton_invert.addEventListener("click", function() {
+      //get value from input field
       self.userProviderInvert = invertInput.value;
       console.log(self.userProviderInvert);
     });
@@ -59,23 +61,25 @@ class VideoObj {
     this.context.save();
     this.context.filter = `blur(${this.userProvidedBlur}px)`; //blur filter
     this.context.filter += `hue-rotate(${this.userProvidedDeg}deg)`; //hue rotate filter
-    this.context.filter +=`sepia(${this.userProviderSepia}%)`;
-    this.context.filter += `invert(${this.userProviderInvert})`;
-    //or     this.context.filter = `invert(${this.userProviderInvert}%)`;
+    this.context.filter +=`sepia(${this.userProviderSepia}%)`; // can add % for slower change
+    this.context.filter += `invert(${this.userProviderInvert})`;// can add % for slower chaage
     this.context.drawImage(this.videoElement, this.x, this.y, this.w, this.h);
     this.context.fillStyle = this.shapeCol;
     this.context.fillRect(this.shapeX, this.shapeY, 50,50)
     this.context.restore();
   }
 
-    //called when rectangle color is to be updated
+  //called when rectangle color is to be updated
   changeColor(newCol){
-   /** FILL IN */
+    this.shapeCol = newCol;
   }
+
   //called when rectangle Pos is to be updated
   updatePositionRect(mx,my){
-     /** FILL IN */
+    this.shapeX = mx;
+    this.shapeY = my;
   }
+
   update(videoElement) {
     this.videoElement = videoElement;
   }
