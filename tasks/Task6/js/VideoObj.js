@@ -10,7 +10,7 @@ class VideoObj {
     this.shapeY =10;
     this.shapeCol = "#000000";
  
-    //blur effect
+    //blur filter
     let filterButton_blur = document.getElementById("filter_button_blur");
     let blurInput = document.getElementById("blurnum");
     this.userProvidedBlur  = 0;
@@ -22,7 +22,7 @@ class VideoObj {
       console.log(self.userProvidedBlur);
     });
 
-    //hue effect
+    //hue filter
     let filterButton_hue  = document.getElementById("filter_button_hue");
     let hueInput = document.getElementById("huenum");  
     this.userProvidedDeg = 0;
@@ -32,12 +32,36 @@ class VideoObj {
       self.userProvidedDeg = hueInput.value;
       console.log(self.userProvidedDeg)
     });
+
+    //sepia filter
+    let filterButton_sepia = document.getElementById("filter_button_sepia");
+    let sepiaInput = document.getElementById("sepianum");
+    this.userProviderSepia = 0;
+
+    filterButton_sepia.addEventListener("click", function() {
+      self.userProviderSepia = sepiaInput.value;
+      console.log(self.userProviderSepia);
+    });
+
+    //invert filter
+    let filterButton_invert = document.getElementById("filter_button_invert");
+    let invertInput = document.getElementById("invertnum");
+    this.userProviderInvert = 0;
+
+    filterButton_invert.addEventListener("click", function() {
+      self.userProviderInvert = invertInput.value;
+      console.log(self.userProviderInvert);
+    });
+
   }
 
   display() {
     this.context.save();
     this.context.filter = `blur(${this.userProvidedBlur}px)`; //blur filter
     this.context.filter += `hue-rotate(${this.userProvidedDeg}deg)`; //hue rotate filter
+    this.context.filter +=`sepia(${this.userProviderSepia}%)`;
+    this.context.filter += `invert(${this.userProviderInvert})`;
+    //or     this.context.filter = `invert(${this.userProviderInvert}%)`;
     this.context.drawImage(this.videoElement, this.x, this.y, this.w, this.h);
     this.context.fillStyle = this.shapeCol;
     this.context.fillRect(this.shapeX, this.shapeY, 50,50)
