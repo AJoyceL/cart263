@@ -7,7 +7,7 @@ class VideoObj {
     this.w = w;
     this.h = h;
     this.shapeX = 10;
-    this.shapeY =10;
+    this.shapeY = 10;
     this.shapeCol = "#000000";
  
     //blur filter
