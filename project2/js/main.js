@@ -164,7 +164,8 @@ function setup(){
 
     // creates a retrieve button
     let retrieveBtn = document.createElement("button");
-    retrieveBtn.textContent = "Retrieve";
+    // retrieveBtn.textContent = "Retrieve";
+    retrieveBtn.textContent = "Folder";
     retrieveBtn.classList.add("retrieveBtn");
     container.appendChild(retrieveBtn);
 
