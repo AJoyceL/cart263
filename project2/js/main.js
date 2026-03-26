@@ -168,17 +168,22 @@ function setup(){
     retrieveBtn.classList.add("retrieveBtn");
     container.appendChild(retrieveBtn);
 
-    // retrieves the journal entry and date from local storage
-    retrieveBtn.addEventListener("click", retrieveEntry);
+    // // retrieves the journal entry and date from local storage
+    // retrieveBtn.addEventListener("click", retrieveEntry);
 
-    // calls the retrieval the journal entry from local storage
-    function retrieveEntry() {
-        let saveID = this.parentElement.id;
-        let entryText = localStorage.getItem(saveID);
-        console.log(saveID);
-        console.log(entryText);
-        document.getElementById(saveID).querySelector("#entry").textContent = localStorage.getItem(saveID + "entry");
-        document.getElementById(saveID).querySelector("h3").textContent = localStorage.getItem(saveID + "date");
-    }
+    // // calls the retrieval the journal entry from local storage
+    // function retrieveEntry() {
+    //     let saveID = this.parentElement.id;
+    //     let entryText = localStorage.getItem(saveID);
+    //     console.log(saveID);
+    //     console.log(entryText);
+    //     document.getElementById(saveID).querySelector("#entry").textContent = localStorage.getItem(saveID + "entry");
+    //     document.getElementById(saveID).querySelector("h3").textContent = localStorage.getItem(saveID + "date");
+    // }
+
+    //sends users to save.html
+    retrieveBtn.addEventListener("click", function() {
+        window.location.href = "save.html";
+    });
     
 }
