@@ -1,0 +1,214 @@
+/* FONT */
+.shadows-into-light-two-regular {
+  font-family: "Shadows Into Light Two", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* CSS */
+body{
+    font-size: calc(1em + 0.390625vw);
+    margin:1%;
+    padding:0;
+    opacity: .85;
+    font-family: 'Roboto', sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+h3{
+    font-family: "Shadows Into Light Two", cursive;
+    font-weight: 400;
+    font-style: normal;
+
+    display: flex;
+    justify-content: end;
+    margin: 10px;
+    text-transform: capitalize;
+    font-size: 1em;
+    color: rgb(37, 37, 37);
+}
+
+p{
+    font-family: "Shadows Into Light Two", cursive;
+    font-weight: 400;
+    font-style: normal;
+    
+    text-transform: inherit;
+    font-size: 1em;
+    color: rgb(37, 37, 37);
+    text-wrap: wrap;
+    padding: 10px;
+}
+
+
+/* ID ELEMENTS */
+
+/* main */
+#parent{
+    position: relative;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background:rgb(216, 207, 195);
+    margin: auto;
+    height: 80vh;
+    width: 60vh;
+    border-radius: 2em;
+    word-wrap:wrap;
+    z-index: 10;
+}
+
+#entry{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    margin: 0;
+    z-index: 10;
+}
+
+
+
+/* CLASS ELEMENTS */
+
+/* themes btn */
+.tradBtn{
+    font-family: "Shadows Into Light Two", cursive;
+    font-weight: 400;
+    font-style: bold;
+    font-size: 18px;
+
+    position: fixed;
+    border: 1.5px solid rgb(37, 37, 37);
+    border-radius: 50px;
+    padding: .5em 2em;
+    margin-bottom: 1em;
+    background: whitesmoke;
+    z-index: 10;
+    bottom: 60vh;
+    right: 10vw;
+}
+
+.oceanBtn{
+    font-family: "Shadows Into Light Two", cursive;
+    font-weight: 400;
+    font-style: bold;
+    font-size: 18px;
+
+    position: fixed;
+    border: 1.5px solid rgb(37, 37, 37);
+    border-radius: 50px;
+    padding: .5em 2em;
+    margin-bottom: 1em;
+    background: whitesmoke;
+    z-index: 10;
+    bottom: 50vh;
+    right: 10vw;
+}
+
+.flowerBtn{
+    font-family: "Shadows Into Light Two", cursive;
+    font-weight: 400;
+    font-style: bold;
+    font-size: 18px;
+
+    position: fixed;
+    border: 1.5px solid rgb(37, 37, 37);
+    border-radius: 50px;
+    padding: .5em 2em;
+    margin-bottom: 1em;
+    background: whitesmoke;
+    z-index: 10;
+    bottom: 40vh;
+    right: 10vw;
+}
+
+.pondBtn{
+    font-family: "Shadows Into Light Two", cursive;
+    font-weight: 400;
+    font-style: bold;
+    font-size: 18px;
+
+    position: fixed;
+    border: 1.5px solid rgb(37, 37, 37);
+    border-radius: 50px;
+    padding: .5em 2.2em;
+    margin-bottom: 1em;
+    background: whitesmoke;
+    z-index: 10;
+    bottom: 30vh;
+    right: 10vw;
+}
+
+
+/* Save and retrieval btn */
+.saveBtn{
+    font-family: "Shadows Into Light Two", cursive;
+    font-weight: 400;
+    font-style: bold;
+    font-size: 18px;
+
+    position: fixed;
+    border: 1.5px solid rgb(37, 37, 37);
+    border-radius: 50px;
+    padding: .5em 2em;
+    margin-bottom: 1em;
+    background: whitesmoke;
+    bottom: 0vh;
+    left: 40vw;
+    z-index: 10;
+
+}
+
+.retrieveBtn{
+    font-family: "Shadows Into Light Two", cursive;
+    font-weight: 400;
+    font-style: bold;
+    font-size: 18px;
+
+    position: fixed;
+    border: 1.5px solid rgb(37, 37, 37);
+    border-radius: 50px;
+    padding: .5em 2em;
+    margin-bottom: 1em;
+    background: whitesmoke;
+    bottom: 0vh;
+    left: 50vw;
+    z-index: 10;
+}
+  
+@media only screen and (max-width: 780px) {
+    p {
+        font-size: 1em;
+    }
+
+    #parent {
+        width: 70vh;
+        height: 80vh;
+    }
+    
+    #entry {
+        height: 70%;
+    }
+
+    .oceanBtn {
+        font-size: .7em;
+        right: 20vw;
+    }
+    
+    .saveBtn {
+        font-size: .7em;
+        left: 30vw;
+    }
+    
+    .retrieveBtn {
+        font-size: .7em;
+        left: 50vw;
+    }
+}
