@@ -61,6 +61,11 @@ p{
     border-radius: 2em;
     word-wrap:wrap;
     z-index: 10;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 1.5em;
+    padding: 1em;
 }
 
 #folder{
@@ -77,6 +82,15 @@ p{
 
 /* CLASS ELEMENTS */
 
+/* saved entries */
+.entryDiv{
+    background-color: rgb(241, 234, 229);
+    padding: 1em;
+    border-radius: 10px;
+    min-height: 100px;
+    word-wrap: break-word;
+    box-shadow: 0 1.5em 3em rgba(0, 0, 0, 0.2);
+}
 
 
 /* Index btn */

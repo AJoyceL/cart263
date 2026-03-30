@@ -13,6 +13,22 @@ function setup(){
     const saveContainer = indexP.parentElement;
 
 
+    /*
+        Saved entries
+    */
+
+    //reference: https://stackoverflow.com/questions/65908096/how-can-i-store-multiple-values-inside-one-localstorage-key?utm_source=chatgpt.com
+    let container = document.getElementById("indexParent");
+
+    //get entries
+    let entries = JSON.parse(localStorage.getItem("entries")) || [];
+    //display entries
+    entries.forEach(function(entry) {
+        let entryDiv = document.createElement("div");
+        entryDiv.classList.add("entryDiv");
+        entryDiv.textContent = entry.date + ": " + entry.text;
+        container.appendChild(entryDiv);
+    });
 
     /*
         Buttons

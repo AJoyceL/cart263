@@ -151,39 +151,31 @@ function setup(){
     // saves the journal entry and date to local storage
     saveBtn.addEventListener("click", saveEntry);
 
-    // calls the saving of the journal entry and date to local storage
+    //saves the journal entry and date to local storage 
+    //reference: https://stackoverflow.com/questions/65908096/how-can-i-store-multiple-values-inside-one-localstorage-key?utm_source=chatgpt.com
     function saveEntry() {
-        console.log(this.parentElement);
-        let saveID = this.parentElement.id;
-        let entryText = this.parentElement.querySelector("#entry").textContent;
-        console.log(saveID);
-        console.log(entryText);
-        localStorage.setItem(saveID + "date", formattedDate);   //saves the date of the entry to local storage
-        localStorage.setItem(saveID + "entry", entryText);  //saves the journal entry to local storage
-    }
+        let entryText = document.getElementById("entry").textContent;
+        let entryObj = {
+            text: entryText,
+            date: new Date().toLocaleDateString()
+        };
+        let entries = JSON.parse(localStorage.getItem("entries")) || [];
+        entries.push(entryObj);
+        localStorage.setItem("entries", JSON.stringify(entries));
+
+        console.log("Entry saved:", entryObj);
+    };
+
 
     // creates a retrieve button
-    let retrieveBtn = document.createElement("button");
-    // retrieveBtn.textContent = "Retrieve";
-    retrieveBtn.textContent = "Folder";
-    retrieveBtn.classList.add("retrieveBtn");
-    container.appendChild(retrieveBtn);
-
-    // // retrieves the journal entry and date from local storage
-    // retrieveBtn.addEventListener("click", retrieveEntry);
-
-    // // calls the retrieval the journal entry from local storage
-    // function retrieveEntry() {
-    //     let saveID = this.parentElement.id;
-    //     let entryText = localStorage.getItem(saveID);
-    //     console.log(saveID);
-    //     console.log(entryText);
-    //     document.getElementById(saveID).querySelector("#entry").textContent = localStorage.getItem(saveID + "entry");
-    //     document.getElementById(saveID).querySelector("h3").textContent = localStorage.getItem(saveID + "date");
-    // }
+    let folderBtn = document.createElement("button");
+    // folderBtn.textContent = "Retrieve";
+    folderBtn.textContent = "Folder";
+    folderBtn.classList.add("folderBtn");
+    container.appendChild(folderBtn);
 
     //sends users to save.html
-    retrieveBtn.addEventListener("click", function() {
+    folderBtn.addEventListener("click", function() {
         window.location.href = "save.html";
     });
     
