@@ -28,7 +28,26 @@ function setup(){
         entryDiv.classList.add("entryDiv");
         entryDiv.textContent = entry.date + ": " + entry.text;
         container.appendChild(entryDiv);
+
+        //click to downlaod entry as text file
+        entryDiv.addEventListener("click", function() {
+            downloadEntry(entries.indexOf(entry), entry.text);
+        });
     });
+
+    //save entry as text file
+    //reference: https://coreui.io/answers/how-to-download-a-file-in-javascript/
+    function downloadEntry(index, text) {
+        let blob = new Blob([text], {type: "text/plain"});
+        let data = window.URL.createObjectURL(blob);
+        let a = document.createElement("a");
+        a.href = data;
+        a.download = "entry_" + index + ".txt";
+        a.click();
+        window.URL.revokeObjectURL(data);
+    }
+
+
 
     /*
         Buttons
