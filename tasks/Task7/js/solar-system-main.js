@@ -68,7 +68,10 @@ const planetB = new PlanetB(scene, 15, 0.005);
 planets.push(planetB);
 
 // // Team C's planet
-const planetC = new PlanetC(scene, 22, 0.003);
+const loader = new THREE.TextureLoader();
+const grass_texture = await loader.loadAsync('textures/grass-2500-mm-architextures.jpg');
+const moon_texture = await loader.loadAsync('textures/moon_1024.jpg');
+const planetC = new PlanetC(scene, 22, 0.003, grass_texture, moon_texture);
 planets.push(planetC);
 
 // // Team D's planet
@@ -88,7 +91,7 @@ function animate(timer) {
     requestAnimationFrame(animate);
     
     const delta = 0.001*(timer - elapsedTime) ;
-    console.log(delta)
+    // console.log(delta)
     elapsedTime = timer;
     
     // Update sun
@@ -99,6 +102,8 @@ function animate(timer) {
     
     // Update all planets (this handles planet orbit, moon orbits, and critter animations)
     planets.forEach(planet => planet.update(delta));
+
+
     
     controls.update();
     renderer.render(scene, camera);
