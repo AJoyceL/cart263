@@ -38,9 +38,42 @@ class Petal {
         this.drawPetal(xPos, yPos, radius, colours[1]);
     }
 
+    //changes the colour of the flowers
+    changeColor() {
+        const newCol = this.colours;
+        const newPetalCol = this.colours;
+
+        while(newPetalCol === this.colours[0]) {
+            newPetalCol = generateRandomHexCode();
+        }
+        while(newCol === this.colours[1]) {
+            newCol = generateRandomHexCode();
+        }
+
+        this.colours[0] = generateRandomHexCode();
+        this.colours[1] = generateRandomHexCode();
+    }
+
     //calls the flowers
     static createFlower(ctx, xPos, yPos, radius, colours) {
         const f = new Petal(ctx, xPos, yPos, radius, colours);
         f.draw();
     }
+}
+
+function random(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+//from: https://dev.to/thecodepixi/what-the-hex-how-to-generate-random-hex-color-codes-in-javascript-21n
+function generateRandomHexCode() {
+  const digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f']
+
+  let hexCode = "#"
+
+  while (hexCode.length < 7) {
+    hexCode += digits[Math.round(Math.random() * digits.length)]
+  }
+
+  return hexCode
 }

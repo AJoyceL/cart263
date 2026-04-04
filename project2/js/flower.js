@@ -15,7 +15,7 @@ function createFlower(container) {
     flowerCanvas.style.position = 'fixed';
     flowerCanvas.style.left = '0';
     flowerCanvas.style.top = '0';
-    flowerCanvas.style.pointerEvents = 'none';
+    flowerCanvas.style.pointerEvents = 'auto';
     flowerCanvas.style.backgroundColor = '#2dceff';
     document.body.appendChild(flowerCanvas);
 
@@ -56,9 +56,26 @@ function createFlower(container) {
         const x = Math.random() * flowerCanvas.width;
         const y = flowerCanvas.height / 2 + Math.random() * (flowerCanvas.height / 2);
         const r = Math.random() * 20 + 5; 
-        flowers.push(new Petal(flowerContext, x, y, r, petalCols));
+        flowers.push(new Petal(flowerContext, x, y, r, [...petalCols]));
     }
 
+    //handles flower change when clicked
+    flowerCanvas.addEventListener("click", function(event) {
+        const mx = event.clientX;
+        const my = event.clientY;
+
+        for (let f of flowers) {
+            const dx = mx - f.xPos;
+            const dy = my - f.yPos;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < f.radius * 2) {
+                f.changeColor();
+                break;
+            }
+        }
+    });
+    
     //renders everyhting
     function flowerAnimate() {
         createGarden(); //calls the garden
