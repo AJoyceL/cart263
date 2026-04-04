@@ -2,6 +2,11 @@ window.onload = setup;
 
 /** function setup */
 function setup(){
+    //sound effects
+    const waves = new Audio(`audio/waves.wav`);
+    waves.loop = true;
+
+
     /*
         general setup for the journal page
     */
@@ -42,6 +47,9 @@ function setup(){
         const oceanCanvas = document.querySelector("#oceanCanvas");
         const flowerCanvas = document.querySelector("#flowerCanvas");
         const pondCanvas = document.querySelector("#pondCanvas");
+        
+        //audio
+        waves.pause();
         if (oceanCanvas) {
             oceanCanvas.remove();
         }
@@ -68,6 +76,9 @@ function setup(){
         // Hide themes if it's showing
         const flowerCanvas = document.querySelector("#flowerCanvas");
         const pondCanvas = document.querySelector("#pondCanvas");
+        
+        //audio
+        waves.play();
         if (flowerCanvas) {
             flowerCanvas.remove();
         }
@@ -95,6 +106,9 @@ function setup(){
         // hide themes if it's showing
         const oceanCanvas = document.querySelector("#oceanCanvas");
         const pondCanvas = document.querySelector("#pondCanvas");
+        
+        //audio
+        waves.pause();
         if (oceanCanvas) {
             oceanCanvas.remove();
         }
@@ -120,6 +134,9 @@ function setup(){
         //hide themes if it's shopwing
         const oceanCanvas = document.querySelector("#oceanCanvas");
         const flowerCanvas = document.querySelector("#flowerCanvas");
+        
+        //audio
+        waves.pause();
         if (oceanCanvas) {
             oceanCanvas.remove();
         }
