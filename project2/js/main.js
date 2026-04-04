@@ -3,9 +3,28 @@ window.onload = setup;
 /** function setup */
 function setup(){
     //sound effects
+    //from: https://freesound.org/people/tedryniyaz/sounds/721360/
     const waves = new Audio(`audio/waves.wav`);
     waves.loop = true;
 
+    //from: https://freesound.org/people/kevp888/sounds/575254/
+    const birds = new Audio(`audio/birds.wav`);
+    birds.loop = true;
+    birds.volume = 1;
+
+    //from: https://freesound.org/people/gis_sweden/sounds/409940/
+    const jazz = new Audio(`audio/jazz.wav`);
+    jazz.loop = true;
+    jazz.volume = .5;
+    jazz.play();
+
+    //from: https://freesound.org/people/klankbeeld/sounds/664611/
+    const pBackground = new Audio(`audio/background.wav`);
+    pBackground.loop = true;
+    //from: https://freesound.org/people/Rayo75/sounds/768868/
+    const pond = new Audio(`audio/fish.mp3`);
+    pond.loop = true;
+    pond.volume = .3;
 
     /*
         general setup for the journal page
@@ -50,6 +69,10 @@ function setup(){
         
         //audio
         waves.pause();
+        birds.pause();
+        jazz.play();
+        pBackground.pause();
+        pond.pause();
         if (oceanCanvas) {
             oceanCanvas.remove();
         }
@@ -79,6 +102,10 @@ function setup(){
         
         //audio
         waves.play();
+        birds.pause();
+        jazz.pause();
+        pBackground.pause();
+        pond.pause();
         if (flowerCanvas) {
             flowerCanvas.remove();
         }
@@ -109,6 +136,10 @@ function setup(){
         
         //audio
         waves.pause();
+        birds.play();
+        jazz.pause();
+        pBackground.pause();
+        pond.pause();
         if (oceanCanvas) {
             oceanCanvas.remove();
         }
@@ -137,6 +168,10 @@ function setup(){
         
         //audio
         waves.pause();
+        birds.pause();
+        jazz.pause();
+        pond.play();
+        pBackground.play();
         if (oceanCanvas) {
             oceanCanvas.remove();
         }
