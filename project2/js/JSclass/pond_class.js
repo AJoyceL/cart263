@@ -52,6 +52,9 @@ class Fish {
             this.vy *= -1;
         }
     }
+    //handles fish change direction when clicked
+    changeDirection() {
+    }
 
     //draws the fishes
     drawFish() {
