@@ -54,7 +54,23 @@ class Fish {
     }
     //handles fish change direction when clicked
     changeDirection() {
+        this.vx *= -1;
+        this.vy *= -1;
     }
+
+    //changes the colour of the fish when clicked + changes the colour for the next click
+    changeColour() {
+        this.colour = generateRandomHexCode();
+    }
+
+    //makes the area around the fish clickable
+    collision(mx, my) {
+        const dx = mx - this.x ;
+        const dy = my - this.y ;
+        const clickableRadius = this.size + 30;
+
+        return Math.sqrt(dx * dx + dy * dy) < clickableRadius;
+    }   
 
     //draws the fishes
     drawFish() {
@@ -78,4 +94,15 @@ function random(min, max) {
     return Math.random() * (max - min) + min;
 }
 
+//from: https://dev.to/thecodepixi/what-the-hex-how-to-generate-random-hex-color-codes-in-javascript-21n
+function generateRandomHexCode() {
+    const digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f']
 
+    let hexCode = "#"
+
+    while (hexCode.length < 7) {
+        hexCode += digits[Math.round(Math.random() * digits.length)]
+    }
+
+    return hexCode
+}

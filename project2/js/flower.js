@@ -56,7 +56,7 @@ function createFlower(container) {
         const x = Math.random() * flowerCanvas.width;
         const y = flowerCanvas.height / 2 + Math.random() * (flowerCanvas.height / 2);
         const r = Math.random() * 20 + 5; 
-        flowers.push(new Petal(flowerContext, x, y, r, [...petalCols]));
+        flowers.push(new Petal(flowerContext, x, y, r, [...petalCols])); //made the flowers into array to only change the colour of the petals and the center separately of the clicked flower
     }
 
     //handles flower change when clicked

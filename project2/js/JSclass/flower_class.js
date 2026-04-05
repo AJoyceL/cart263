@@ -61,10 +61,6 @@ class Petal {
     }
 }
 
-function random(min, max) {
-    return Math.random() * (max - min) + min;
-}
-
 //from: https://dev.to/thecodepixi/what-the-hex-how-to-generate-random-hex-color-codes-in-javascript-21n
 function generateRandomHexCode() {
     const digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f']

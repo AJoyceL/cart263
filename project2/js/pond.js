@@ -23,7 +23,7 @@ function createPond(container) {
     pondCanvas.style.position = 'fixed';
     pondCanvas.style.left = '0';
     pondCanvas.style.top = '0';
-    pondCanvas.style.pointerEvents = 'none';
+    pondCanvas.style.pointerEvents = 'auto';
     pondCanvas.style.backgroundColor = '#11b1e2';
     document.body.appendChild(pondCanvas);
 
@@ -59,6 +59,22 @@ function createPond(container) {
         fish.push(new Fish(pondContext, pondCanvas.width, pondCanvas.height));
     }
 
+    //handles event listener for click on fish
+    pondCanvas.addEventListener('click', function(event) {
+        const rect = pondCanvas.getBoundingClientRect();
+        const mx = event.clientX - rect.left;
+        const my = event.clientY - rect.top;
+
+        for (let f of fish) {
+            if(f.collision(mx, my)) {
+                f.changeDirection();
+                f.changeColour();
+                break;
+            }
+        }
+    });
+
+    //handles animation for the pond
     function animate() {
         pondContext.clearRect(0, 0, pondCanvas.width, pondCanvas.height); // Clear entire canvas
 
