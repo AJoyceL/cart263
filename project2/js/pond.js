@@ -72,6 +72,12 @@ function createPond(container) {
                 break;
             }
         }
+        for (let pad of lilyPads) {
+            if(pad.padCollision(mx, my)) {
+                pad.shrink();
+                break;
+            }
+        }
     });
 
     //handles animation for the pond
@@ -88,7 +94,11 @@ function createPond(container) {
             f.drawFish();
         });
 
-        lilyPads.forEach(pad => pad.draw()); //calls lilypads
+        //calls lilypads
+        lilyPads.forEach(pad => {
+            pad.update();
+            pad.draw();
+        });
 
 
         requestAnimationFrame(animate);

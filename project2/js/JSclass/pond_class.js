@@ -8,8 +8,29 @@ class LilyPad{
         this.x = x;
         this.y = y;
         this.r = r ;
+        this.originalR = r;
         this.colour = colour;
     }
+
+
+    update(){
+        if (this.r < this.originalR){
+            this.r += 0.5; // Grow back to original size
+        }
+    }
+
+    //handles lilypad shrink and grow back when clicked
+    shrink() {
+        this.r *= 0.8; 
+    }
+
+    //handles lilypad collision when clicked
+    padCollision(mx, my) {
+        const dx = mx - this.x ;
+        const dy = my - this.y ;
+
+        return Math.sqrt(dx * dx + dy * dy) < this.r;
+    } 
 
     //draws the lilypads
     draw() {
@@ -70,7 +91,7 @@ class Fish {
         const clickableRadius = this.size + 30;
 
         return Math.sqrt(dx * dx + dy * dy) < clickableRadius;
-    }   
+    }     
 
     //draws the fishes
     drawFish() {
