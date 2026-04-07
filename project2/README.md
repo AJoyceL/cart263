@@ -10,13 +10,11 @@ Dear Diary is an interactive web where users are invited to type out their days 
 1. There is a date that changes to match the current time(real time date).
 2. The journal/diary invites users to share their day.
 3. The page has a scroll option to write as much as they want.
-4. The entry saves through Chrome Local Storage and is retrievable.
-5. There are 4 themes/environements to pick from.
+4. The entry can be saved in Folder page.
+5. Entries can be downloaded by clicking on them.
+6. There are 4 themes/environements to pick from and interact with.
+7. Selectable fonts to customise the entry.
 
-> for project 2
-3. offer to change fonts?
-5. enhance the visual?
-5. make some objt clickable
 
 ## Screenshot(s)
 1. Traditional leather-bound theme
@@ -39,4 +37,6 @@ Dear Diary is an interactive web where users are invited to type out their days 
 - [ContentEditable](https://www.w3schools.com/jsref/prop_html_contenteditable.asp)
 - Ocean wave [referenfce](https://youtu.be/LLfhY4eVwDY?si=1RROuFFVRUxol5FM)
 - Bounce off walls [reference](https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Bounce_off_the_walls)
+- audio from Freesound.
+- [GenerateRandomHexCode](https://dev.to/thecodepixi/what-the-hex-how-to-generate-random-hex-color-codes-in-javascript-21n)
 
