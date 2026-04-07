@@ -73,9 +73,58 @@ p{
     z-index: 10;
 }
 
+#fontMenu{
+    font-family: "Shadows Into Light Two", cursive;
+    font-weight: 400;
+    font-style: bold;
+    font-size: 20px;
 
+    position: fixed;
+    left: -25vw;
+    top: 0;
+    width: 25%;
+    height: 100%;
+    padding: 2em .5em;
+    z-index: 20;
+    background: whitesmoke;
+    transition: left 0.5s ease;
+}
+
+#fontMenu.open{
+    left: 0;
+}
 
 /* CLASS ELEMENTS */
+
+/* font btn */
+.fontBtn{
+    font-family: "Shadows Into Light Two", cursive;
+    font-weight: 400;
+    font-style: bold;
+    font-size: 18px;
+
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    position: absolute;
+    left: 0vw;
+    top: 45vh;
+    padding: .5em 2em;
+    z-index: 10;
+    background: whitesmoke;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.fontOption {
+    text-align: center;
+    text-justify: center;
+    display: block;
+    padding: 1em 2em;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+
 
 /* themes btn */
 .tradBtn{
