@@ -110,19 +110,6 @@ function setup(){
         fonts.appendChild(fontOption);
     })
 
-    //slide menu left/right
-    fontBtn.addEventListener("click", function() {
-        fonts.classList.toggle("open");
-    });
-
-    //makes the font menu disappear when clicking outside of it
-    document.addEventListener("click", function(event) {
-        if (!fonts.contains(event.target) && event.target !== fontBtn) {
-            fonts.classList.remove("open");
-        }
-        //event.target: https://developer.mozilla.org/en-US/docs/Web/API/Event/target
-    });
-
     //makes fontOption bigger
     let rouge = document.querySelector(".fontOption:nth-child(8)");
     rouge.style.fontSize = "30px";
@@ -139,6 +126,19 @@ function setup(){
     let unifraktur = document.querySelector(".fontOption:nth-child(13)");
     unifraktur.style.fontSize = "30px";
     unifraktur.style.padding = "0.7em 1em";
+
+    //slide menu left/right
+    fontBtn.addEventListener("click", function() {
+        fonts.classList.toggle("open");
+    });
+
+    //makes the font menu disappear when clicking outside of it
+    document.addEventListener("click", function(event) {
+        if (!fonts.contains(event.target) && event.target !== fontBtn) {
+            fonts.classList.remove("open");
+        }
+        //event.target: https://developer.mozilla.org/en-US/docs/Web/API/Event/target
+    });
 
 
 

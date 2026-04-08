@@ -2,7 +2,7 @@
 
 Joyce Angelina Lam
 
-[Live Site](https://ajoycel.github.io/cart263/project1/)
+[Live Site](https://ajoycel.github.io/cart263/project2/)
 
 ## Description
 Dear Diary is an interactive web where users are invited to type out their days or how they feel. 
@@ -21,13 +21,20 @@ Dear Diary is an interactive web where users are invited to type out their days 
 ![basic](img/basic.png)
 
 2. Ocean theme
-![ocean](img/ocean.png)
+![ocean_morning](img/ocean_morning.png)
+![ocean_night](img/ocean_night.png)
 
 3. Flower field theme
 ![flower](img/flower.png)
 
 4. Fish pond theme
 ![pond](img/pond.png)
+
+5. Fonts menu
+![fonts](img/fonts.png)
+
+6. Save folder
+![Folder](img/save.png)
 
 
 ## Attribution
@@ -39,4 +46,3 @@ Dear Diary is an interactive web where users are invited to type out their days 
 - Bounce off walls [reference](https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Bounce_off_the_walls)
 - audio from Freesound.
 - [GenerateRandomHexCode](https://dev.to/thecodepixi/what-the-hex-how-to-generate-random-hex-color-codes-in-javascript-21n)
-
