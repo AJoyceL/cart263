@@ -145,7 +145,7 @@ class stars {
 }
 
 //handles the birds flying across the sky
-//drawImage reference from,: https://stackoverflow.com/questions/72823713/js-drawimage-as-a-method-in-class
+//drawImage reference from,: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage
 class birds {
     constructor() {
         this.birds = [];
@@ -172,7 +172,7 @@ class birds {
                 bird.y = Math.random() * (height / 3);
             }
         }
-    }
+    } 
 
     draw(ctx) {
         for(let bird of this.birds) {

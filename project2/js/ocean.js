@@ -6,6 +6,11 @@
 function createOcean(container) {
     if (!container || !(container)) return;
 
+    //bird chirp audio
+    const chirp1 = new Audio(`audio/chirp_1.wav`);
+    const chirp2 = new Audio(`audio/chirp_2.flac`);
+    const chirp3 = new Audio(`audio/chirp_3.wav`);
+
     // avoid creating multiple canvases
     if (document.querySelector('#oceanCanvas')) return;
 
@@ -23,7 +28,7 @@ function createOcean(container) {
     oceanCanvas.style.position = 'fixed';
     oceanCanvas.style.left = '0';
     oceanCanvas.style.top = '0';
-    oceanCanvas.style.pointerEvents = 'none';
+    // oceanCanvas.style.pointerEvents = 'none'; // commented out to allow clicks on birds
     oceanCanvas.style.backgroundColor = '#2eceff';
     document.body.appendChild(oceanCanvas);
 
@@ -39,10 +44,6 @@ function createOcean(container) {
     function resizeWaves() {
         waveGroup.resize(oceanCanvas.width, oceanCanvas.height);
     }
-
-    //bird
-    const bird = new birds();
-    bird.init(oceanCanvas.width, oceanCanvas.height);
 
     //skyvalue
     let sky = `rgb(46, 206, 255)`; 
@@ -78,6 +79,26 @@ function createOcean(container) {
     //calls star to appear when night falls
     const starrySky = new stars();
     starrySky.init(oceanCanvas.width, oceanCanvas.height);
+
+    //bird
+    const bird = new birds();
+    bird.init(oceanCanvas.width, oceanCanvas.height);
+
+    //handles event listener for click on birds
+    oceanCanvas.addEventListener('click', function(event) {
+        const rect = oceanCanvas.getBoundingClientRect();
+        const mx = event.clientX - rect.left;
+        const my = event.clientY - rect.top;
+        for (let b of bird.birds) {
+            const dx = mx - b.x;
+            const dy = my - b.y;
+            if (Math.sqrt(dx * dx + dy * dy) < 30) {
+                const chirps = [chirp1, chirp2, chirp3];
+                const randomChirp = chirps[Math.floor(Math.random() * chirps.length)];
+                randomChirp.play();
+            }
+        }
+    });
 
     resizeWaves();
 
