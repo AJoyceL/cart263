@@ -14,6 +14,10 @@ Dear Diary is an interactive web where users are invited to type out their days 
 5. Entries can be downloaded by clicking on them.
 6. There are 4 themes/environements to pick from and interact with.
 7. Selectable fonts to customise the entry.
+8. Flowers change colours when clicked.
+9. Fishes change direction and colours when clicked.
+10. Lilypads shrink and grow back to original size when clicked.
+11. Birds chirp when clicked.
 
 
 ## Screenshot(s)
