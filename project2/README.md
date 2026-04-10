@@ -48,5 +48,8 @@ Dear Diary is an interactive web where users are invited to type out their days 
 - [ContentEditable](https://www.w3schools.com/jsref/prop_html_contenteditable.asp)
 - Ocean wave [referenfce](https://youtu.be/LLfhY4eVwDY?si=1RROuFFVRUxol5FM)
 - Bounce off walls [reference](https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Bounce_off_the_walls)
-- audio from Freesound.
+- Save entry stringify + parse [reference](https://stackoverflow.com/questions/65908096/how-can-i-store-multiple-values-inside-one-localstorage-key?utm_source=chatgpt.com)
+- Entry download [reference](https://coreui.io/answers/how-to-download-a-file-in-javascript/) 
+- Audio from Freesound.
 - [GenerateRandomHexCode](https://dev.to/thecodepixi/what-the-hex-how-to-generate-random-hex-color-codes-in-javascript-21n)
+- [drawImage()](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage)

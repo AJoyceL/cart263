@@ -145,7 +145,7 @@ class stars {
 }
 
 //handles the birds flying across the sky
-//drawImage reference from,: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage
+//drawImage reference from: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage
 class birds {
     constructor() {
         this.birds = [];
