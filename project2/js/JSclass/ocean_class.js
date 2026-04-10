@@ -115,3 +115,70 @@ class WaveGroup {
         }
     }    
 }
+
+//handles the stars in the night sky
+class stars {
+    constructor() {
+        this.stars = [];
+        this.totalStars = 100;
+    }
+
+    init(width, height) {
+        this.stars = [];
+        for(let i = 0; i < this.totalStars; i++) {
+            const x = Math.random() * width;
+            const y = Math.random() * (height / 3);
+            const size = Math.random() * 2 + 1;
+            this.stars.push({x, y, size});
+        }
+    }
+
+    draw(ctx, nightTime) {
+        const fade = Math.max(0, (nightTime - 0.5) * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${fade})`;
+        for(let star of this.stars) {
+            ctx.beginPath();
+            ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+}
+
+//handles the birds flying across the sky
+//drawImage reference from,: https://stackoverflow.com/questions/72823713/js-drawimage-as-a-method-in-class
+class birds {
+    constructor() {
+        this.birds = [];
+        this.totalBirds = 5;
+        this.birdImg = new Image();
+        this.birdImg.src = 'img/bird.png';
+    }
+
+    init(width, height) {
+        this.birds = [];
+        for(let i = 0; i < this.totalBirds; i++) {
+            const x = Math.random() * width;
+            const y = Math.random() * (height / 3);
+            const speed = Math.random() * 2 + 1;
+            this.birds.push({x, y, speed});
+        }
+    }
+
+    update(width, height) {
+        for(let bird of this.birds) {
+            bird.x += bird.speed;
+            if (bird.x > width + 20) {
+                bird.x = -20;
+                bird.y = Math.random() * (height / 3);
+            }
+        }
+    }
+
+    draw(ctx) {
+        for(let bird of this.birds) {
+            if (this.birdImg.complete) {
+                ctx.drawImage(this.birdImg, bird.x - 10, bird.y - 10, 30, 30);
+            }
+        }
+    }
+}

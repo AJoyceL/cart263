@@ -40,6 +40,10 @@ function createOcean(container) {
         waveGroup.resize(oceanCanvas.width, oceanCanvas.height);
     }
 
+    //bird
+    const bird = new birds();
+    bird.init(oceanCanvas.width, oceanCanvas.height);
+
     //skyvalue
     let sky = `rgb(46, 206, 255)`; 
 
@@ -71,22 +75,9 @@ function createOcean(container) {
         // console.log(nightTime,);
     }
 
-    // // Calculate the sun's position based on the time of day  
-    // function sunCycle() {
-    //     //center
-    //     const centerX = (oceanCanvas.width - 100) * 2;
-    //     const centerY = oceanCanvas.height / 5;
-
-    //     //orbit
-    //     const radiusX = oceanCanvas.width * .4;
-    //     const radiusY = oceanCanvas.height * .5;
-
-    //     const angle = nightTime * Math.PI * 2;
-
-    //     const sunX = centerX + radiusX * Math.cos(angle);
-    //     const sunY = centerY + radiusY * Math.sin(angle);
-    //     return { x: sunX, y: sunY };
-    // }
+    //calls star to appear when night falls
+    const starrySky = new stars();
+    starrySky.init(oceanCanvas.width, oceanCanvas.height);
 
     resizeWaves();
 
@@ -103,25 +94,35 @@ function createOcean(container) {
         oceanContext.fillStyle = `rgba(0, 0, 0, ${fade})`;
         oceanContext.fillRect(0, 0, oceanCanvas.width, oceanCanvas.height);
 
-        // const sunPos = sunCycle(); //sun position
-        // //lower the sun as it gets darker
-        // oceanContext.beginPath();
-        // oceanContext.ellipse(sunPos.x, sunPos.y, 75, 75, 0, 0, Math.PI * 2);
-        // oceanContext.fillStyle = '#ffdd00';
-        // oceanContext.fill();
-        // oceanContext.closePath();
-
         // draw the waves
         waveGroup.draw(oceanContext);
+
+        // draw stars if night time
+        if (nightTime > 0.5) {
+            starrySky.draw(oceanContext, nightTime);
+        }
+
+        // update and draw birds
+        bird.update(oceanCanvas.width, oceanCanvas.height);
+        bird.draw(oceanContext);
+
         requestAnimationFrame(animate);
     }
 
     // handle window resize so canvas stays full-screen
     function onResize() {
+        //handles waves
         oceanSizeCanvas();
         resizeWaves();
+        
+        //handles stars
+        starrySky.init(oceanCanvas.width, oceanCanvas.height);
+
+        //handles birds
+        bird.init(oceanCanvas.width, oceanCanvas.height);
+
         nightCycle();
-        // redraw immediately
+        // redraw sky immediately
         oceanContext.fillStyle = sky;
         oceanContext.fillRect(0, 0, oceanCanvas.width, oceanCanvas.height);
     }
