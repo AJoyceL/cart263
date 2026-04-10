@@ -217,7 +217,7 @@ function setup(){
             pondBtn.disabled = false;
 
             //change the entry text
-            entry.textContent = "Enjoy the ocean view!";
+            entry.textContent = "Catch the birds!";
         }
     });
 
