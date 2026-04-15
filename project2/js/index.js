@@ -153,15 +153,22 @@ function animate() {
 
 //event listener
 //reference: https://discourse.threejs.org/t/zoom-into-object-and-open-popup-on-click/40337
-window.addEventListener("click", (event) => {
-    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+canvas.addEventListener("click", (event) => {
+    const rect = canvas.getBoundingClientRect();
+
+    mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+    mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+
+
+    book.updateMatrixWorld();
+    camera.updateMatrixWorld();
 
     raycaster.setFromCamera(mouse, camera);
 
     const intersects = raycaster.intersectObject(book);
 
-    //zoom if book is clicked
+    console.log(intersects.length); // debug
+
     if (intersects.length > 0) {
         zooming = true;
     }
