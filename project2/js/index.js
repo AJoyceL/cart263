@@ -12,7 +12,7 @@ piano.loop = true;
 piano.volume = 0.5;
 
 //load music
-window.onload = () => {
+render.domElement.onload = () => {
     piano.play();
 }
 
