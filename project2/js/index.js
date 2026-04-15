@@ -3,22 +3,6 @@ import * as THREE from 'three';
 
 
 /*
-    Audio setup 
-*/
-//piano theme
-//from: https://freesound.org/people/xkeril/sounds/826622/
-const piano = new Audio(`audio/piano.wav`);
-piano.loop = true;
-piano.volume = 0.5;
-
-//load music
-render.domElement.onload = () => {
-    piano.play();
-}
-
-
-
-/*
    texture loader
 */
 //from : https://polyhaven.com/a/brown_leather
