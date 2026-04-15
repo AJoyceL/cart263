@@ -3,15 +3,18 @@ import * as THREE from 'three';
 
 
 /*
-    General audio setup 
+    Audio setup 
 */
-
 //piano theme
 //from: https://freesound.org/people/xkeril/sounds/826622/
 const piano = new Audio(`audio/piano.wav`);
 piano.loop = true;
-// piano.play();
 piano.volume = 0.5;
+
+//load music
+window.onload = () => {
+    piano.play();
+}
 
 
 
@@ -152,18 +155,14 @@ wall.receiveShadow = true;
 
 renderer.domElement.addEventListener("click", (event) => {
     const rect = canvas.getBoundingClientRect();
-
     mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
     mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
-
 
     book.updateMatrixWorld();
     camera.updateMatrixWorld();
 
     raycaster.setFromCamera(mouse, camera);
-
     const intersects = raycaster.intersectObject(book);
-
     if (intersects.length > 0) {
         zooming = true;
     }
@@ -173,7 +172,6 @@ window.requestAnimationFrame(animate);
 
 function animate() {
     window.requestAnimationFrame(animate);
-    piano.play();
 
     //handles zooming animation
     if (zooming) {
