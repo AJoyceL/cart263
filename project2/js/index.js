@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
+
 
 /*
    texture loader
@@ -7,6 +7,8 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 //from : https://polyhaven.com/a/brown_leather
 const textureLoader = new THREE.TextureLoader()
 const bookTexture = textureLoader.load('texture/brown_leather_rough_4k.jpg')
+
+
 
 /*
    scene setup
@@ -16,6 +18,20 @@ const sizes = {
     width: window.innerWidth,
     height: window.innerHeight
 }
+
+
+
+/*
+   raycaster setup
+*/
+const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2();
+
+let zooming = false; //zooming state
+let targetPosition = new THREE.Vector3(-0.1, -0.6, 0.6); //target position => used AI to help calculate the exact coordinates
+
+
+
 
 /*
    canvas setup
@@ -28,8 +44,11 @@ const canvas = document.querySelector('canvas#three-ex')
    camera setup
 */
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height)
-camera.position.z = 2;
+camera.position.z = 3;
 camera.position.y = -1.5;
+camera.position.x = -0.5;
+camera.rotation.y = -0.2;
+camera.rotation.x = 0.5;
 scene.add(camera)
 
 
@@ -112,16 +131,38 @@ wall.castShadow = true;
 wall.receiveShadow = true;
 
 
-// Controls
-const controls = new OrbitControls(camera, canvas)
-controls.target = book.position;
-controls.enableDamping = true;
 
 window.requestAnimationFrame(animate);
 
-function animate(timer) {
-
-    renderer.render(scene, camera); 
+function animate() {
     window.requestAnimationFrame(animate);
+
+    //handles zooming animation
+    if (zooming) {
+        camera.position.lerp(targetPosition, 0.08);
+        camera.lookAt(book.position);
+
+        //hanbdles redirection
+        if (camera.position.distanceTo(targetPosition) < 0.05) {
+            window.location.href = "diary.html";
+        }
+    }
+    
+    renderer.render(scene, camera);
 }
-controls.update()
+
+//event listener
+//reference: https://discourse.threejs.org/t/zoom-into-object-and-open-popup-on-click/40337
+window.addEventListener("click", (event) => {
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+    raycaster.setFromCamera(mouse, camera);
+
+    const intersects = raycaster.intersectObject(book);
+
+    //zoom if book is clicked
+    if (intersects.length > 0) {
+        zooming = true;
+    }
+});
