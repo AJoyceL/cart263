@@ -21,23 +21,26 @@ Dear Diary is an interactive web where users are invited to type out their days 
 
 
 ## Screenshot(s)
-1. Traditional leather-bound theme
+1. Intro page
+![intro](img/intro.png)
+
+2. Traditional leather-bound theme
 ![basic](img/basic.png)
 
-2. Ocean theme
+3. Ocean theme
 ![ocean_morning](img/ocean_morning.png)
 ![ocean_night](img/ocean_night.png)
 
-3. Flower field theme
+4. Flower field theme
 ![flower](img/flower.png)
 
-4. Fish pond theme
+5. Fish pond theme
 ![pond](img/pond.png)
 
-5. Fonts menu
+6. Fonts menu
 ![fonts](img/fonts.png)
 
-6. Save folder
+7. Save folder
 ![Folder](img/save.png)
 
 
