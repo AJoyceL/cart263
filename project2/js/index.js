@@ -1,6 +1,18 @@
 import * as THREE from 'three';
 
 
+
+/*
+    General audio setup 
+*/
+
+//piano theme
+//from: https://freesound.org/people/xkeril/sounds/826622/
+const piano = new Audio(`audio/piano.wav`);
+piano.loop = true;
+piano.play();
+piano.volume = 0.5;
+
 /*
    texture loader
 */
@@ -168,6 +180,7 @@ function animate() {
         //hanbdles redirection
         if (camera.position.distanceTo(targetPosition) < 0.05) {
             window.location.href = "diary.html";
+            piano.pause();
         }
     }
     
