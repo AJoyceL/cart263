@@ -132,6 +132,29 @@ wall.receiveShadow = true;
 
 
 
+
+//event listener
+//reference: https://discourse.threejs.org/t/zoom-into-object-and-open-popup-on-click/40337
+
+renderer.domElement.addEventListener("click", (event) => {
+    const rect = canvas.getBoundingClientRect();
+
+    mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+    mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+
+
+    book.updateMatrixWorld();
+    camera.updateMatrixWorld();
+
+    raycaster.setFromCamera(mouse, camera);
+
+    const intersects = raycaster.intersectObject(book);
+
+    if (intersects.length > 0) {
+        zooming = true;
+    }
+});
+
 window.requestAnimationFrame(animate);
 
 function animate() {
@@ -150,26 +173,3 @@ function animate() {
     
     renderer.render(scene, camera);
 }
-
-//event listener
-//reference: https://discourse.threejs.org/t/zoom-into-object-and-open-popup-on-click/40337
-canvas.addEventListener("click", (event) => {
-    const rect = canvas.getBoundingClientRect();
-
-    mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-    mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
-
-
-    book.updateMatrixWorld();
-    camera.updateMatrixWorld();
-
-    raycaster.setFromCamera(mouse, camera);
-
-    const intersects = raycaster.intersectObject(book);
-
-    console.log(intersects.length); // debug
-
-    if (intersects.length > 0) {
-        zooming = true;
-    }
-});
