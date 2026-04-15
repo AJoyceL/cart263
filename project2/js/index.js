@@ -10,8 +10,10 @@ import * as THREE from 'three';
 //from: https://freesound.org/people/xkeril/sounds/826622/
 const piano = new Audio(`audio/piano.wav`);
 piano.loop = true;
-piano.play();
+// piano.play();
 piano.volume = 0.5;
+
+
 
 /*
    texture loader
@@ -171,6 +173,7 @@ window.requestAnimationFrame(animate);
 
 function animate() {
     window.requestAnimationFrame(animate);
+    piano.play();
 
     //handles zooming animation
     if (zooming) {
