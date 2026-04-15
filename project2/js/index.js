@@ -134,7 +134,9 @@ wall.receiveShadow = true;
 
 
 
-//event listener
+/*
+   event listener setup
+*/
 //reference: https://discourse.threejs.org/t/zoom-into-object-and-open-popup-on-click/40337
 
 renderer.domElement.addEventListener("click", (event) => {
@@ -151,6 +153,8 @@ renderer.domElement.addEventListener("click", (event) => {
         zooming = true;
     }
 });
+
+
 
 window.requestAnimationFrame(animate);
 
