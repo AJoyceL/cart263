@@ -53,3 +53,5 @@ Dear Diary is an interactive web where users are invited to type out their days 
 - Audio from Freesound.
 - [GenerateRandomHexCode](https://dev.to/thecodepixi/what-the-hex-how-to-generate-random-hex-color-codes-in-javascript-21n)
 - [drawImage()](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage)
+- [texture](https://polyhaven.com/a/brown_leather)
+- raycasting zoom [reference](https://discourse.threejs.org/t/zoom-into-object-and-open-popup-on-click/40337)
