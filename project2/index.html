@@ -1,72 +1,26 @@
-
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Dear Journal</title>
-    <meta charset="utf-8" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"rel="stylesheet"/>
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
-    <link rel="stylesheet" type="text/css" href="css/canvas.css"/>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
-    <!-- fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <style>
+      body { margin: 0; }
+    </style>
+        <script type="importmap">
+        {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.182.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.182.0/examples/jsm/"
+        }
+        }
+    </script>
 
-    <!-- shadows into light two -->
-    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap" rel="stylesheet"> 
+    <script type="module" src="js/index.js"></script>
+</head>
+<body>
+    <canvas id = "three-ex"></canvas>
 
-    <!-- Playwrite IE -->
-    <link href="https://fonts.googleapis.com/css2?family=Playwrite+IE:wght@100..400&display=swap" rel="stylesheet">
-   
-    <!-- Montserrat --> 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-    <!-- Poller One -->
-    <link href="https://fonts.googleapis.com/css2?family=Poller+One&display=swap" rel="stylesheet">
-
-    <!-- Rouge Script -->
-    <link href="https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap" rel="stylesheet">
-
-    <!-- Meow Script -->
-    <link href="https://fonts.googleapis.com/css2?family=Meow+Script&display=swap" rel="stylesheet">
-
-    <!-- Corinthia -->
-    <link href="https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&display=swap" rel="stylesheet">
-
-    <!-- Silkscreen -->
-    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
-
-    <!-- Geostar -->
-    <link href="https://fonts.googleapis.com/css2?family=Geostar&display=swap" rel="stylesheet">
-
-    <!-- UnifrakturMaguntia -->
-    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
-
-    <!-- Indie Flower -->
-    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
-
-  </head>
-  <body>
-    <div id="fontMenu"></div> 
-
-    <div id="parent">
-        <h3>date</h3>
-        <p id="entry">Hi! Tell me about your day :) </p>
-    </div>
-    <script src="js/main.js"></script>
-
-    <!-- ocean theme -->
-    <script src="js/ocean.js"></script>
-    <script src="js/JSclass/ocean_class.js"></script>
-
-    <!-- flower field theme -->
-    <script src="js/JSclass/flower_class.js"></script>
-    <script src="js/flower.js"></script>
-
-    <!-- fish pond theme -->
-    <script src="js/JSclass/pond_class.js"></script>
-    <script src="js/pond.js"></script>
-
-  </body>
+</body>
 </html>

@@ -60,6 +60,6 @@ function setup(){
 
     //sends users to save.html
     indexBtn.addEventListener("click", function() {
-        window.location.href = "index.html";
+        window.location.href = "diary.html";
     });
 }
